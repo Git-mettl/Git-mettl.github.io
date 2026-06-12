@@ -393,23 +393,7 @@
             close.addEventListener('click', () => toggle(false));
             links.forEach(link => link.addEventListener('click', () => toggle(false)));
         },
-
-        setupFormHandler() {
-            const form = document.getElementById('contact-form');
-            const success = document.getElementById('form-success');
-
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    form.classList.add('opacity-0');
-                    setTimeout(() => {
-                        form.classList.add('hidden');
-                        success.classList.remove('hidden');
-                        success.classList.add('animate-pulse');
-                    }, 300);
-                });
-            }
-        }
+        
     };
 
     document.addEventListener("DOMContentLoaded", () => {

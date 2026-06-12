@@ -328,41 +328,50 @@
                 }
             };
 
-            // 2. Form Submission Handler
-            const initContactForm = () => {
-                const contactForm = document.getElementById('contact-form');
-                if (!contactForm) return;
+                    setupFormHandler() {
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
 
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const btn = contactForm.querySelector('#submit-btn');
-                    const btnText = btn.querySelector('span');
-                    const originalText = btnText.innerText;
-                    
-                    // Loading State
-                    btnText.innerText = 'SENDING...';
-                    btn.disabled = true;
-                    btn.classList.add('opacity-50', 'cursor-not-allowed');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            // 1. Still stop the page reload
+            e.preventDefault();
 
-                    // Simulate API Delay
-                    setTimeout(() => {
-                        btnText.innerText = 'INQUIRY SENT';
-                        btn.classList.remove('bg-primary');
-                        btn.classList.add('bg-green-700');
-                        
-                        setTimeout(() => {
-                            contactForm.reset();
-                            btnText.innerText = originalText;
-                            btn.disabled = false;
-                            btn.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-green-700');
-                            btn.classList.add('bg-primary');
-                            
-                            // Reset labels
-                            document.querySelectorAll('.form-group label').forEach(l => l.classList.remove('text-primary'));
-                        }, 3000);
-                    }, 1500);
+            // 2. Read the inputs from the HTML form fields
+            const formData = new FormData(form);
+
+            try {
+                // 3. Send the data to Formspree silently in the background
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 });
-            };
+
+                if (response.ok) {
+                    // 4. Run your beautiful hide/show animations ONLY if Formspree accepted it
+                    form.classList.add('opacity-0');
+                    setTimeout(() => {
+                        form.classList.add('hidden');
+                        if (success) {
+                            success.classList.remove('hidden');
+                            success.classList.add('animate-pulse');
+                        }
+                    }, 300);
+                    
+                    form.reset(); // Clear inputs for next time
+                } else {
+                    alert("Oops! There was a problem submitting your inquiry.");
+                }
+            } catch (error) {
+                // Catches network disconnects / adblocker interference
+                alert("Could not connect to the server. Please check your internet connection.");
+            }
+        });
+    }
+}
 
             // 3. UI Interactions (Labels)
             const initUIInteractions = () => {
@@ -408,6 +417,8 @@
                 });
             };
             setActiveNav();
+
+            
             window.addEventListener('hashchange', setActiveNav);
         });
     </script>
