@@ -165,7 +165,7 @@
 <!-- Desktop Menu -->
 <div class="hidden md:flex items-center gap-8">
 <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 uppercase" href="index.html#work">Work</a>
-<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 uppercase" href="index.html#studio">Studio</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 uppercase" href="index.html#vision">Vision</a>
 <a class="font-label-md text-label-md text-primary font-bold transition-opacity duration-150 uppercase underline decoration-1 underline-offset-4" href="#contact">Contact</a>
 </div>
 <!-- Desktop Action Button -->
@@ -197,23 +197,30 @@
 <div class="grid grid-cols-12 gap-y-16 md:gap-gutter-desktop">
 <!-- Inquiry Form Section -->
 <section class="col-span-12 md:col-span-5">
-<p class="font-label-md text-label-md uppercase mb-12 tracking-widest text-secondary">Start a Project</p>
-<form autocomplete="off" class="space-y-12" id="contact-form">
-<div class="form-group flex flex-col">
-<label class="font-label-md text-label-md uppercase block mb-2 text-secondary transition-colors duration-300" for="name">Name</label>
-<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary transition-all duration-300 placeholder:opacity-30 font-light focus:ring-0 focus:border-primary" id="name" name="name" placeholder="Your full name" required="" type="text"/>
-</div>
-<div class="form-group flex flex-col">
-<label class="font-label-md text-label-md uppercase block mb-2 text-secondary transition-colors duration-300" for="email">Email</label>
-<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary transition-all duration-300 placeholder:opacity-30 font-light focus:ring-0 focus:border-primary" id="email" name="email" placeholder="Email address" required="" type="email"/>
-</div>
-<div class="form-group flex flex-col">
-<label class="font-label-md text-label-md uppercase block mb-2 text-secondary transition-colors duration-300" for="message">Project Inquiry</label>
-<textarea class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary transition-all duration-300 resize-none placeholder:opacity-30 font-light focus:ring-0 focus:border-primary" id="message" name="message" placeholder="Tell us about your project or vision..." rows="4"></textarea>
-</div>
-<button class="group w-full md:w-auto px-12 py-5 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest transition-all hover:bg-neutral-800 active:scale-95 duration-200 flex items-center justify-center gap-2" id="submit-btn" type="submit">
-<span>SEND INQUIRY</span>
-</button>
+    <p class="font-label-md text-label-md uppercase mb-12 tracking-widest text-secondary">Start a Project</p>
+    
+    <form action="https://formspree.io/f/mrevozzl" method="POST" autocomplete="off" class="space-y-12" id="contact-form">
+        
+        <div class="form-group flex flex-col">
+            <label class="font-label-md text-label-md uppercase block mb-2 text-secondary transition-colors duration-300" for="name">Name</label>
+            <input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary transition-all duration-300 placeholder:opacity-30 font-light focus:ring-0 focus:border-primary" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+        </div>
+        
+        <div class="form-group flex flex-col">
+            <label class="font-label-md text-label-md uppercase block mb-2 text-secondary transition-colors duration-300" for="email">Email</label>
+            <input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary transition-all duration-300 placeholder:opacity-30 font-light focus:ring-0 focus:border-primary" id="email" name="email" placeholder="Email address" required="" type="email"/>
+        </div>
+        
+        <div class="form-group flex flex-col">
+            <label class="font-label-md text-label-md uppercase block mb-2 text-secondary transition-colors duration-300" for="message">Project Inquiry</label>
+            <textarea class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary transition-all duration-300 resize-none placeholder:opacity-30 font-light focus:ring-0 focus:border-primary" id="message" name="message" placeholder="Tell us about your project or vision..." rows="4" required=""></textarea>
+        </div>
+        
+        <button class="group w-full md:w-auto px-12 py-5 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest transition-all hover:bg-neutral-800 active:scale-95 duration-200 flex items-center justify-center gap-2" id="submit-btn" type="submit">
+            <span>SEND INQUIRY</span>
+        </button>
+    </form>
+</section>
 </form>
 </section>
 <!-- Contact Information Section -->
@@ -229,7 +236,7 @@
 <div class="flex items-baseline">
 <span class="font-label-md text-label-md uppercase text-secondary">Phone</span>
 <div class="dotted-leader"></div>
-<span class="font-body-md text-body-md text-primary font-light">+91 8971841972</span>
+<span class="font-body-md text-body-md text-primary font-light">+91-8971841972</span>
 </div>
 <div class="flex items-baseline">
 <span class="font-label-md text-label-md uppercase text-secondary">Office</span>
@@ -240,7 +247,9 @@
 </div>
 <!-- Map UI Component -->
 <div class="relative w-full aspect-video md:aspect-square border border-outline-variant overflow-hidden group bg-surface-container-low">
-<img alt="Office Location Map" class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-80 transition-all duration-1000 group-hover:scale-105" src="https://staticmap.openstreetmap.de/staticmap.php?center=12.9140,77.6200&zoom=15&size=600x300&markers=12.9140,77.6200,red-pushpin"/>
+<img alt="Office Location Map" 
+     class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-80 transition-all duration-1000 group-hover:scale-105" 
+     src="https://image.maps.openfreemap.org/b64/v1/liberty/600x300/14.5/12.9105/77.5857.png"/>
 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
 <div class="w-10 h-10 border-2 border-primary bg-background/50 backdrop-blur-sm flex items-center justify-center rounded-full">
 <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
