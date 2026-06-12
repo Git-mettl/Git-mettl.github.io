@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UTPRERAK ARCHITECTS — Architectural Purity</title>
+
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Outfit -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind design-token configuration -->
+<script src="js/tailwind-config.js"></script>
+
+<!-- Custom styles -->
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+<!-- ============================================
+     TOP APP BAR
+     ============================================ -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-6 md:px-margin-desktop py-4">
+    <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+        <span class="font-headline-md text-[24px] font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
+    </div>
+    <nav class="hidden md:flex gap-8 items-center">
+        <a class="font-label-md text-label-md text-primary font-bold hover:opacity-70 transition-opacity duration-150" href="#work">WORK</a>
+        <a class="font-label-md text-label-md text-secondary hover:opacity-70 transition-opacity duration-150" href="#studio">STUDIO</a>
+        <a class="font-label-md text-label-md text-secondary hover:opacity-70 transition-opacity duration-150" href="#journal">JOURNAL</a>
+        <a class="font-label-md text-label-md text-secondary hover:opacity-70 transition-opacity duration-150" href="contact.html">CONTACT</a>
+    </nav>
+    <a href="contact.html" class="hidden md:inline-block font-label-md text-label-md uppercase border border-primary px-6 py-2 hover:bg-primary hover:text-on-primary transition-colors duration-150">Contact</a>
+    <div class="md:hidden">
+        <span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
+    </div>
+</header>
+
+<!-- ============================================
+     HERO SECTION
+     ============================================ -->
+<section class="relative w-full h-[100vh] min-h-[600px] hero-image" style="background-image: url('images/hero-towers.jpg');">
+    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="relative z-10 h-full flex flex-col justify-end px-margin-mobile md:px-margin-desktop pb-24">
+        <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary uppercase tracking-tighter font-light mb-4">
+            UTPRERAK
+        </h1>
+        <p class="font-label-md text-label-md text-on-primary/80 uppercase tracking-[0.3em]">
+            Architectural Purity
+        </p>
+        <div class="absolute bottom-8 right-margin-mobile md:right-margin-desktop hidden md:flex items-center gap-4">
+            <span class="font-label-sm text-label-sm text-on-primary/70 uppercase tracking-widest">Scroll to Explore</span>
+            <div class="w-px h-12 bg-on-primary/40"></div>
+        </div>
+    </div>
+</section>
+
+<main class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+
+    <!-- ============================================
+         OUR VISION
+         ============================================ -->
+    <section id="studio" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-section-gap border-b border-outline-variant">
+        <div class="lg:col-span-3">
+            <p class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-4">Our Vision</p>
+            <div class="w-12 h-px bg-primary"></div>
+        </div>
+        <div class="lg:col-span-9">
+            <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-light mb-8 max-w-3xl">
+                We believe in architecture as a form of silence. A precise language of light, void, and structure.
+            </h2>
+            <p class="font-body-lg text-body-lg text-secondary max-w-2xl mb-8">
+                UTPRERAK is a studio dedicated to the pursuit of Architectural Purity. We eliminate the
+                superfluous to reveal the essential character of space. Every project is an exercise in
+                precision, a response to context, and a commitment to creating modern monuments that endure.
+            </p>
+            <a href="#" class="font-label-md text-label-md uppercase tracking-widest text-primary font-bold inline-flex items-center gap-2 hover:opacity-70 transition-opacity duration-150">
+                Learn More About Our Method
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FEATURED ARCHIVES / SELECTED WORKS
+         ============================================ -->
+    <section id="work" class="py-section-gap">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+                <p class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-4">Selected Works</p>
+                <h2 class="font-headline-md text-headline-md text-primary font-light italic">Featured Archives</h2>
+            </div>
+            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">01 — 06 Projects</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
+            <!-- Card 1 -->
+            <div class="archive-card flex flex-col gap-4">
+                <div class="aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant">
+                    <img src="images/work-monolith-house.jpg" alt="The Monolith House" class="w-full h-full object-cover"/>
+                </div>
+                <div>
+                    <h3 class="font-body-lg text-body-lg text-primary">The Monolith House</h3>
+                    <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-1">Residential / 2023</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="archive-card flex flex-col gap-4 md:mt-12">
+                <div class="aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant">
+                    <img src="images/work-void-gallery.jpg" alt="Void Gallery" class="w-full h-full object-cover"/>
+                </div>
+                <div>
+                    <h3 class="font-body-lg text-body-lg text-primary">Void Gallery</h3>
+                    <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-1">Cultural / 2022</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="archive-card flex flex-col gap-4">
+                <div class="aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant">
+                    <img src="images/work-cantilever-pavilion.jpg" alt="Cantilever Pavilion" class="w-full h-full object-cover"/>
+                </div>
+                <div>
+                    <h3 class="font-body-lg text-body-lg text-primary">Cantilever Pavilion</h3>
+                    <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-1">Hospitality / 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         RECOGNITION & HONORS
+         ============================================ -->
+    <section class="py-section-gap border-t border-outline-variant">
+        <p class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-12">Recognition &amp; Honors</p>
+
+        <div class="flex flex-col">
+            <div class="recognition-row flex flex-col md:flex-row md:items-baseline justify-between py-6 gap-2">
+                <span class="font-label-sm text-label-sm text-secondary">2024</span>
+                <span class="font-headline-sm text-headline-sm text-primary font-light flex-1 md:px-12">Pritzker Nomination</span>
+                <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-right">Excellence in Sustainable Form</span>
+            </div>
+            <div class="recognition-row flex flex-col md:flex-row md:items-baseline justify-between py-6 gap-2">
+                <span class="font-label-sm text-label-sm text-secondary">2023</span>
+                <span class="font-headline-sm text-headline-sm text-primary font-light flex-1 md:px-12">AIA Gold Medal</span>
+                <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-right">Lifetime Achievement</span>
+            </div>
+            <div class="recognition-row flex flex-col md:flex-row md:items-baseline justify-between py-6 gap-2">
+                <span class="font-label-sm text-label-sm text-secondary">2022</span>
+                <span class="font-headline-sm text-headline-sm text-primary font-light flex-1 md:px-12">Architizer A+ Award</span>
+                <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-right">Project of the Year</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         START A COLLABORATION (CTA)
+         ============================================ -->
+    <section id="journal" class="my-section-gap bg-primary text-on-primary px-6 md:px-24 py-24 flex flex-col items-center text-center gap-8">
+        <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-light">
+            Start a Collaboration
+        </h2>
+        <p class="font-body-lg text-body-lg text-inverse-on-surface/70 max-w-xl">
+            We are currently accepting inquiries for 2025–2026 project cycles. Let's build a monument together.
+        </p>
+        <form class="w-full max-w-xl flex flex-col sm:flex-row gap-4 mt-4">
+            <label class="sr-only" for="cta-email">Email address</label>
+            <input id="cta-email" type="email" placeholder="Your email address"
+                   class="flex-1 bg-transparent border border-on-primary/40 px-6 py-4 font-body-md text-body-md text-on-primary placeholder:text-on-primary/50 focus:ring-0 focus:border-on-primary"/>
+            <button type="submit" class="bg-on-primary text-primary px-10 py-4 font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity duration-150">
+                Send Message
+            </button>
+        </form>
+    </section>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="w-full border-t border-outline-variant bg-surface px-margin-mobile md:px-margin-desktop py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="flex flex-col gap-2">
+            <span class="font-headline-sm text-headline-sm text-primary font-bold uppercase tracking-tighter">UTPRERAK</span>
+            <p class="font-body-md text-body-md text-secondary mt-2">
+                Studio 04, Level 12<br/>
+                Tech City Hub, Bangalore<br/>
+                India 560001
+            </p>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h4 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Pages</h4>
+            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Portfolio</a>
+            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Approach</a>
+            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Team</a>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h4 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Social</h4>
+            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Instagram</a>
+            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">LinkedIn</a>
+            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Journal</a>
+        </div>
+        <div class="flex flex-col gap-3">
+            <h4 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Legal</h4>
+            <p class="font-label-sm text-label-sm text-secondary uppercase">© 2024 UTPRERAK ARCHITECTS</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Page scripts -->
+<script src="js/main.js"></script>
+</body>
+</html>
