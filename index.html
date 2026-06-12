@@ -1,217 +1,377 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
-<head>
+
+<html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>UTPRERAK ARCHITECTS — Architectural Purity</title>
-
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<!-- Google Fonts: Outfit -->
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/>
-
-<!-- Tailwind CSS -->
+<title>UTPRERAK | Architectural Purity</title>
+<!-- Dependencies -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind design-token configuration -->
-<script src="js/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Design Tokens & Theme Overrides */
+        :root {
+            --font-main: 'Outfit', sans-serif;
+            --primary: #000000;
+            --surface: #f9f9f9;
+            --outline: #747878;
+        }
 
-<!-- Custom styles -->
-<link rel="stylesheet" href="css/style.css"/>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Animation & Interaction Classes */
+        .hero-zoom {
+            animation: slowZoom 20s infinite alternate ease-in-out;
+        }
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dotted-leader {
+            flex-grow: 1;
+            border-bottom: 1px dotted #D1D1D1;
+            margin: 0 8px;
+            margin-bottom: 6px;
+        }
+
+        /* Transition for Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Utility for Spartan-like (Century Gothic) feel using Outfit Light */
+        .font-spartan-light {
+            font-family: var(--font-main);
+            font-weight: 200;
+            letter-spacing: -0.01em;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "secondary": "#5e5e5e",
+                        "outline-variant": "#c4c7c7",
+                        "outline": "#747878",
+                        "surface-container-low": "#f3f3f4",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#1a1c1b"
+                    },
+                    spacing: {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "80px",
+                        "section-gap": "128px",
+                        "stack-md": "24px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Outfit", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-
-<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
-
-<!-- ============================================
-     TOP APP BAR
-     ============================================ -->
-<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-6 md:px-margin-desktop py-4">
-    <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
-        <span class="font-headline-md text-[24px] font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
-    </div>
-    <nav class="hidden md:flex gap-8 items-center">
-        <a class="font-label-md text-label-md text-primary font-bold hover:opacity-70 transition-opacity duration-150" href="#work">WORK</a>
-        <a class="font-label-md text-label-md text-secondary hover:opacity-70 transition-opacity duration-150" href="#studio">STUDIO</a>
-        <a class="font-label-md text-label-md text-secondary hover:opacity-70 transition-opacity duration-150" href="#journal">JOURNAL</a>
-        <a class="font-label-md text-label-md text-secondary hover:opacity-70 transition-opacity duration-150" href="contact.html">CONTACT</a>
-    </nav>
-    <a href="contact.html" class="hidden md:inline-block font-label-md text-label-md uppercase border border-primary px-6 py-2 hover:bg-primary hover:text-on-primary transition-colors duration-150">Contact</a>
-    <div class="md:hidden">
-        <span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
-    </div>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary font-body font-light overflow-x-hidden">
+<!-- Navigation Header -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center transition-all duration-300" id="main-header">
+<a class="flex items-center gap-2 group" href="/">
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+<span class="text-[20px] md:text-[24px] font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
+</a>
+<nav class="hidden md:flex gap-12">
+<a class="text-[14px] text-primary font-medium hover:opacity-70 transition-opacity uppercase tracking-widest" href="#work">Work</a>
+<a class="text-[14px] text-secondary hover:opacity-70 transition-opacity uppercase tracking-widest" href="#studio">Studio</a>
+<a class="text-[14px] text-secondary hover:opacity-70 transition-opacity uppercase tracking-widest" href="#journal">Journal</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="hidden md:block text-[14px] uppercase px-6 py-2 border border-primary hover:bg-primary hover:text-on-primary transition-all duration-300" href="contact.html">Contact</a>
+<button aria-label="Open Menu" class="md:hidden text-primary p-2" id="mobile-menu-btn">
+<a class="material-symbols-outlined" href="index.html">menu</a>
+</button>
+</div>
 </header>
-
-<!-- ============================================
-     HERO SECTION
-     ============================================ -->
-<section class="relative w-full h-[100vh] min-h-[600px] hero-image" style="background-image: url('images/hero-towers.jpg');">
-    <div class="absolute inset-0 hero-overlay"></div>
-    <div class="relative z-10 h-full flex flex-col justify-end px-margin-mobile md:px-margin-desktop pb-24">
-        <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary uppercase tracking-tighter font-light mb-4">
-            UTPRERAK
-        </h1>
-        <p class="font-label-md text-label-md text-on-primary/80 uppercase tracking-[0.3em]">
-            Architectural Purity
-        </p>
-        <div class="absolute bottom-8 right-margin-mobile md:right-margin-desktop hidden md:flex items-center gap-4">
-            <span class="font-label-sm text-label-sm text-on-primary/70 uppercase tracking-widest">Scroll to Explore</span>
-            <div class="w-px h-12 bg-on-primary/40"></div>
-        </div>
-    </div>
+<!-- Mobile Navigation Overlay -->
+<aside class="fixed inset-0 z-[60] bg-surface translate-x-full md:hidden" id="mobile-menu">
+<div class="flex justify-between items-center px-margin-mobile py-4 border-b border-outline-variant">
+<span class="text-[20px] font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
+<button aria-label="Close Menu" class="text-primary p-2" id="mobile-menu-close">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col items-center justify-center h-[calc(100%-80px)] gap-12 text-center">
+<a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="index.html#work">Work</a>
+<a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="index.html#studio">Studio</a>
+<a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="index.html#journal">Journal</a>
+<a class="text-[14px] uppercase px-12 py-4 border border-primary bg-primary text-on-primary">Contact</a>
+</nav>
+</aside>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full overflow-hidden flex items-center px-margin-mobile md:px-margin-desktop">
+<div class="absolute inset-0 z-0">
+<img alt="Architectural Purity" class="w-full h-full object-cover hero-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDchVO7dWX5ChUIfCrJrZ01ofcJzkXJIvbMDNy1PITLFuwc1pUa5Zh6CsJiE8xZferQJuzJqoIttuuHAh3ouqh0PibIFWL0LEuiBAvzrN5rDefXJxvPjH6Cm_ytTbYJ7tTHby--_y6-qDQo_TKcvARsE_tpnYbFzP429VLpEPLQ6DfEaeZgzXq7z7d6GU7W6Rcn1GzegPgml6TIRkLxVz8eiZoC4ztehtbeznZcDbMI-_U0RzUf7zXgySXhYfAll4utYvRQ-emzttk"/>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<h1 class="text-[56px] md:text-[96px] text-white mb-4 tracking-tighter mix-blend-difference font-spartan-light uppercase">UTPRERAK</h1>
+<p class="text-[14px] md:text-[24px] text-white/90 font-extralight tracking-[0.3em] uppercase mix-blend-difference">Architectural Purity</p>
+</div>
+<div class="absolute bottom-10 right-margin-mobile md:right-margin-desktop z-10 flex flex-col items-end">
+<span class="text-[12px] text-white/70 uppercase mb-4 tracking-widest font-light">Scroll to explore</span>
+<div class="w-px h-16 bg-white/50 animate-bounce"></div>
+</div>
 </section>
-
-<main class="px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
-
-    <!-- ============================================
-         OUR VISION
-         ============================================ -->
-    <section id="studio" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 py-section-gap border-b border-outline-variant">
-        <div class="lg:col-span-3">
-            <p class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-4">Our Vision</p>
-            <div class="w-12 h-px bg-primary"></div>
-        </div>
-        <div class="lg:col-span-9">
-            <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-light mb-8 max-w-3xl">
-                We believe in architecture as a form of silence. A precise language of light, void, and structure.
-            </h2>
-            <p class="font-body-lg text-body-lg text-secondary max-w-2xl mb-8">
-                UTPRERAK is a studio dedicated to the pursuit of Architectural Purity. We eliminate the
-                superfluous to reveal the essential character of space. Every project is an exercise in
-                precision, a response to context, and a commitment to creating modern monuments that endure.
+<!-- Vision Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto reveal-on-scroll" id="studio">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter">
+<div class="md:col-span-4">
+<h2 class="text-[12px] text-primary uppercase tracking-widest mb-4">OUR VISION</h2>
+<div class="w-16 h-px bg-primary mb-8"></div>
+</div>
+<div class="md:col-span-8">
+<p class="text-[32px] md:text-[48px] text-primary mb-12 tracking-tight leading-tight font-spartan-light">
+                    We believe in architecture as a form of silence. A precise language of light, void, and structure.
+                </p>
+<div class="max-w-2xl space-y-8">
+<p class="text-[18px] text-secondary leading-relaxed font-light">
+                        UTPRERAK is a studio dedicated to the pursuit of Architectural Purity. We eliminate the superfluous to reveal the essential character of space. Every project is an exercise in precision, a response to context, and a commitment to creating modern monuments that endure.
+                    </p>
+<p class="text-[16px] text-secondary hidden md:block font-light">
+                        Our studio operates at the intersection of mathematical precision and poetic intuition, crafting environments that stand as monuments to clarity in an increasingly complex world.
+                    </p>
+<a class="text-[14px] text-primary font-bold inline-flex items-center gap-2 group uppercase tracking-widest" href="#studio">
+                        Learn More About Our Method
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Selected Works Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low reveal-on-scroll" id="work">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div>
+<h2 class="text-[12px] text-secondary uppercase tracking-widest mb-4">Selected Works</h2>
+<h3 class="text-[32px] md:text-[48px] text-primary italic font-spartan-light">Featured Archives</h3>
+</div>
+<div class="hidden md:block">
+<span class="text-[12px] text-secondary uppercase tracking-widest">01 — 06 PROJECTS</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Project 1 -->
+<article class="group cursor-pointer">
+<div class="overflow-hidden bg-surface mb-6 aspect-[4/5] border border-outline-variant">
+<img alt="The Monolith House" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw6g1Tui91E5kTlm625T1B02Z9kAXmyRKD3RZ4kIVafL2mJ1KAjlBMXcQwxKIjbPoUOITg4FZ1cHUYqSK95M7Q697MIifPGsSapaWm3kyqjnmTZWzcgl-U9bvXFk1z2kn6BlV9kAf0kJwWaS_p42Hcq2qv4Vsrz3RKDHfrjbxfV5eYCGVQ-7oCsLDk0i_ZtPpMpBCrrRc9sZVS2EWT70V8PXE14WfM8ruzNiRNeIe46xZLhOU6SpVcVObqxFH1T8Fc-JnJ2ZgvIK0"/>
+</div>
+<header class="flex justify-between items-start">
+<div>
+<h4 class="text-[20px] text-primary mb-1 uppercase font-spartan-light">The Monolith House</h4>
+<p class="text-[12px] text-secondary uppercase tracking-widest">Residential • Zurich, CH / 2023</p>
+</div>
+</header>
+</article>
+<!-- Project 2 -->
+<article class="group cursor-pointer lg:mt-24">
+<div class="overflow-hidden bg-surface mb-6 aspect-[4/5] border border-outline-variant">
+<img alt="Void Gallery" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCloSEtkUztMKH7Bk_2JVHkdyh7x7KQGis9bPD-U3XmUMbWeEUtbzj0rJOvQxm-CY98b9GMcFJDipSCaeW0-wvC4-UuX7zIyePLpYo7ValqZHNrCcoOOC72EiaTnITNhbGp0OVXSIWbVgNIXERAcnxWwGp2o6979yjG6dkJQJjR_QAMRxdfNDX-EAkjLnCwXFjnUNdLm0_aSdh5LmEdA6DyEKg2HRzKyMPacgGZjOEFKqg9R6N1_2MvAYiW4b7U05LO94WQnnr6Ya8"/>
+</div>
+<header class="flex justify-between items-start">
+<div>
+<h4 class="text-[20px] text-primary mb-1 uppercase font-spartan-light">Void Gallery</h4>
+<p class="text-[12px] text-secondary uppercase tracking-widest">Cultural • Kyoto, JP / 2022</p>
+</div>
+</header>
+</article>
+<!-- Project 3 -->
+<article class="group cursor-pointer">
+<div class="overflow-hidden bg-surface mb-6 aspect-[4/5] border border-outline-variant">
+<img alt="Cantilever Pavilion" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXnsSMrBoKPL9iUNV1dQiZAX8VTEyarxxYdMHehkTFXMeXc1CjoL-sqCvqCGj7yUz0vEjqDF8L59wWTWONzKXKBDQLYqIQgA_lMwUymT6tnDAnhtaMVYqJJjTryXvkwrQ-Hp2Yf_NKzG897JWJ3CB0VOMtnr7TqitWKYspp-nPlWE62gNY3GMSptdgrqIM-JkiN-Ybdq1BudodOyJOUVpbSmq3TBK2hP5_sHENy-TKQLRTmHUoQTP9O5oGeH5kp8RNI2nRr3aeqn8"/>
+</div>
+<header class="flex justify-between items-start">
+<div>
+<h4 class="text-[20px] text-primary mb-1 uppercase font-spartan-light">Cantilever Pavilion</h4>
+<p class="text-[12px] text-secondary uppercase tracking-widest">Hospitality • Austin, TX / 2024</p>
+</div>
+</header>
+</article>
+</div>
+</section>
+<!-- Recognition Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto reveal-on-scroll">
+<h2 class="text-[12px] text-primary uppercase tracking-widest mb-16">Recognition &amp; Honors</h2>
+<div class="flex flex-col border-t border-outline-variant">
+<div class="award-row flex flex-col md:flex-row items-baseline py-8 border-b border-outline-variant hover:bg-surface-container-highest transition-colors duration-200 px-4 group">
+<span class="text-[12px] text-secondary w-32 mb-2 md:mb-0">2024</span>
+<span class="text-[24px] text-primary uppercase font-spartan-light">Pritzker Nomination</span>
+<div class="dotted-leader hidden md:block"></div>
+<span class="text-[12px] text-secondary uppercase tracking-widest">Studio Excellence</span>
+</div>
+<div class="award-row flex flex-col md:flex-row items-baseline py-8 border-b border-outline-variant hover:bg-surface-container-highest transition-colors duration-200 px-4 group">
+<span class="text-[12px] text-secondary w-32 mb-2 md:mb-0">2023</span>
+<span class="text-[24px] text-primary uppercase font-spartan-light">AIA Gold Medal</span>
+<div class="dotted-leader hidden md:block"></div>
+<span class="text-[12px] text-secondary uppercase tracking-widest">Residential Project</span>
+</div>
+<div class="award-row flex flex-col md:flex-row items-baseline py-8 border-b border-outline-variant hover:bg-surface-container-highest transition-colors duration-200 px-4 group">
+<span class="text-[12px] text-secondary w-32 mb-2 md:mb-0">2021</span>
+<span class="text-[24px] text-primary uppercase font-spartan-light">Mies Van Der Rohe Award</span>
+<div class="dotted-leader hidden md:block"></div>
+<span class="text-[12px] text-secondary uppercase tracking-widest">Void Gallery</span>
+</div>
+<div class="award-row flex flex-col md:flex-row items-baseline py-8 border-b border-outline-variant hover:bg-surface-container-highest transition-colors duration-200 px-4 group">
+<span class="text-[12px] text-secondary w-32 mb-2 md:mb-0">2020</span>
+<span class="text-[24px] text-primary uppercase font-spartan-light">Red Dot Design</span>
+<div class="dotted-leader hidden md:block"></div>
+<span class="text-[12px] text-secondary uppercase tracking-widest">Best of Best</span>
+</div>
+</div>
+</section>
+<!-- Inquiry Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-primary text-on-primary" id="contact">
+<div class="max-w-4xl mx-auto text-center reveal-on-scroll">
+<h2 class="text-[12px] uppercase tracking-[0.4em] text-on-primary/60 mb-8">Inquiry</h2>
+<p class="text-[40px] md:text-[64px] mb-12 tracking-tighter font-spartan-light uppercase">Start a Collaboration</p>
+<form class="flex flex-col md:flex-row gap-8 items-end max-w-2xl mx-auto" id="contact-form">
+<div class="flex-grow w-full text-left">
+<label class="text-[12px] text-on-primary/50 uppercase block mb-2 tracking-widest" for="email-input">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-on-primary/30 text-on-primary py-4 px-0 focus:ring-0 focus:border-on-primary transition-colors placeholder:text-on-primary/20 font-light uppercase" id="email-input" placeholder="YOUR@EMAIL.COM" required="" type="email"/>
+</div>
+<button class="w-full md:w-auto bg-on-primary text-primary px-12 py-4 text-[14px] uppercase font-bold hover:bg-on-primary/90 transition-colors whitespace-nowrap" type="submit">
+                    Send Message
+                </button>
+</form>
+<p class="hidden mt-8 text-on-primary/80 uppercase tracking-widest text-[14px]" id="form-success">
+                Thank you. We will be in touch shortly.
             </p>
-            <a href="#" class="font-label-md text-label-md uppercase tracking-widest text-primary font-bold inline-flex items-center gap-2 hover:opacity-70 transition-opacity duration-150">
-                Learn More About Our Method
-                <span class="material-symbols-outlined text-base">arrow_forward</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- ============================================
-         FEATURED ARCHIVES / SELECTED WORKS
-         ============================================ -->
-    <section id="work" class="py-section-gap">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-                <p class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-4">Selected Works</p>
-                <h2 class="font-headline-md text-headline-md text-primary font-light italic">Featured Archives</h2>
-            </div>
-            <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">01 — 06 Projects</span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
-            <!-- Card 1 -->
-            <div class="archive-card flex flex-col gap-4">
-                <div class="aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant">
-                    <img src="images/work-monolith-house.jpg" alt="The Monolith House" class="w-full h-full object-cover"/>
-                </div>
-                <div>
-                    <h3 class="font-body-lg text-body-lg text-primary">The Monolith House</h3>
-                    <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-1">Residential / 2023</p>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="archive-card flex flex-col gap-4 md:mt-12">
-                <div class="aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant">
-                    <img src="images/work-void-gallery.jpg" alt="Void Gallery" class="w-full h-full object-cover"/>
-                </div>
-                <div>
-                    <h3 class="font-body-lg text-body-lg text-primary">Void Gallery</h3>
-                    <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-1">Cultural / 2022</p>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="archive-card flex flex-col gap-4">
-                <div class="aspect-[4/5] bg-surface-container overflow-hidden border border-outline-variant">
-                    <img src="images/work-cantilever-pavilion.jpg" alt="Cantilever Pavilion" class="w-full h-full object-cover"/>
-                </div>
-                <div>
-                    <h3 class="font-body-lg text-body-lg text-primary">Cantilever Pavilion</h3>
-                    <p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-1">Hospitality / 2024</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         RECOGNITION & HONORS
-         ============================================ -->
-    <section class="py-section-gap border-t border-outline-variant">
-        <p class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-12">Recognition &amp; Honors</p>
-
-        <div class="flex flex-col">
-            <div class="recognition-row flex flex-col md:flex-row md:items-baseline justify-between py-6 gap-2">
-                <span class="font-label-sm text-label-sm text-secondary">2024</span>
-                <span class="font-headline-sm text-headline-sm text-primary font-light flex-1 md:px-12">Pritzker Nomination</span>
-                <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-right">Excellence in Sustainable Form</span>
-            </div>
-            <div class="recognition-row flex flex-col md:flex-row md:items-baseline justify-between py-6 gap-2">
-                <span class="font-label-sm text-label-sm text-secondary">2023</span>
-                <span class="font-headline-sm text-headline-sm text-primary font-light flex-1 md:px-12">AIA Gold Medal</span>
-                <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-right">Lifetime Achievement</span>
-            </div>
-            <div class="recognition-row flex flex-col md:flex-row md:items-baseline justify-between py-6 gap-2">
-                <span class="font-label-sm text-label-sm text-secondary">2022</span>
-                <span class="font-headline-sm text-headline-sm text-primary font-light flex-1 md:px-12">Architizer A+ Award</span>
-                <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary text-right">Project of the Year</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         START A COLLABORATION (CTA)
-         ============================================ -->
-    <section id="journal" class="my-section-gap bg-primary text-on-primary px-6 md:px-24 py-24 flex flex-col items-center text-center gap-8">
-        <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-light">
-            Start a Collaboration
-        </h2>
-        <p class="font-body-lg text-body-lg text-inverse-on-surface/70 max-w-xl">
-            We are currently accepting inquiries for 2025–2026 project cycles. Let's build a monument together.
-        </p>
-        <form class="w-full max-w-xl flex flex-col sm:flex-row gap-4 mt-4">
-            <label class="sr-only" for="cta-email">Email address</label>
-            <input id="cta-email" type="email" placeholder="Your email address"
-                   class="flex-1 bg-transparent border border-on-primary/40 px-6 py-4 font-body-md text-body-md text-on-primary placeholder:text-on-primary/50 focus:ring-0 focus:border-on-primary"/>
-            <button type="submit" class="bg-on-primary text-primary px-10 py-4 font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity duration-150">
-                Send Message
-            </button>
-        </form>
-    </section>
-
+</div>
+</section>
 </main>
-
-<!-- ============================================
-     FOOTER
-     ============================================ -->
-<footer class="w-full border-t border-outline-variant bg-surface px-margin-mobile md:px-margin-desktop py-16">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div class="flex flex-col gap-2">
-            <span class="font-headline-sm text-headline-sm text-primary font-bold uppercase tracking-tighter">UTPRERAK</span>
-            <p class="font-body-md text-body-md text-secondary mt-2">
-                Studio 04, Level 12<br/>
-                Tech City Hub, Bangalore<br/>
-                India 560001
-            </p>
-        </div>
-        <div class="flex flex-col gap-3">
-            <h4 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Pages</h4>
-            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Portfolio</a>
-            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Approach</a>
-            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Team</a>
-        </div>
-        <div class="flex flex-col gap-3">
-            <h4 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Social</h4>
-            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Instagram</a>
-            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">LinkedIn</a>
-            <a href="#" class="font-body-md text-body-md text-on-surface hover:text-secondary transition-colors duration-150">Journal</a>
-        </div>
-        <div class="flex flex-col gap-3">
-            <h4 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Legal</h4>
-            <p class="font-label-sm text-label-sm text-secondary uppercase">© 2024 UTPRERAK ARCHITECTS</p>
-        </div>
-    </div>
+<!-- Footer -->
+<footer class="bg-surface border-t border-outline-variant px-margin-mobile md:px-margin-desktop py-20 flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-xs w-full md:w-auto text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-2 mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+<span class="text-[24px] font-bold uppercase tracking-tighter">UTPRERAK</span>
+</div>
+<address class="text-[12px] text-secondary uppercase leading-loose tracking-widest font-light not-italic">
+            © 2026 UTPRERAK ARCHITECTS<br/>
+            JP Nagar, Bangalore<br/>
+            India, 560001
+        </address>
+</div>
+<div class="grid grid-cols-2 gap-12 w-full md:w-auto">
+<div class="flex flex-col gap-4">
+<span class="text-[14px] text-primary font-bold mb-2 tracking-widest uppercase">SOCIAL</span>
+<nav class="flex flex-col gap-3">
+<a class="text-[12px] text-secondary uppercase hover:text-primary transition-colors tracking-widest" href="https://www.instagram.com/utprerak.co.in/">Instagram</a>
+<a class="text-[12px] text-secondary uppercase hover:text-primary transition-colors tracking-widest" href="https://www.linkedin.com/company/utprerak/">LinkedIn</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-[14px] text-primary font-bold mb-2 tracking-widest uppercase">OFFICE</span>
+<address class="text-[12px] text-secondary uppercase tracking-widest leading-relaxed not-italic">
+                JP Nagar, Bangalore<br/>
+                India, 560001
+            </address>
+</div>
+</div>
 </footer>
+<script>
+    /**
+     * INTERACTION MANAGER
+     * Handles Scroll Animations, Mobile Navigation, and Form Logic
+     */
+    const UI = {
+        init() {
+            this.setupScrollObserver();
+            this.setupHeaderScroll();
+            this.setupMobileMenu();
+            this.setupFormHandler();
+        },
 
-<!-- Page scripts -->
-<script src="js/main.js"></script>
-</body>
-</html>
+        setupScrollObserver() {
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        },
+
+        setupHeaderScroll() {
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2', 'shadow-sm', 'bg-surface');
+                    header.classList.remove('py-4', 'bg-surface/90');
+                } else {
+                    header.classList.add('py-4', 'bg-surface/90');
+                    header.classList.remove('py-2', 'shadow-sm', 'bg-surface');
+                }
+            });
+        },
+
+        setupMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const close = document.getElementById('mobile-menu-close');
+            const menu = document.getElementById('mobile-menu');
+            const links = menu.querySelectorAll('a');
+
+            const toggle = (isOpen) => {
+                menu.classList.toggle('translate-x-full', !isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            };
+
+            btn.addEventListener('click', () => toggle(true));
+            close.addEventListener('click', () => toggle(false));
+            links.forEach(link => link.addEventListener('click', () => toggle(false)));
+        },
+
+        setupFormHandler() {
+            const form = document.getElementById('contact-form');
+            const success = document.getElementById('form-success');
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    form.classList.add('opacity-0');
+                    setTimeout(() => {
+                        form.classList.add('hidden');
+                        success.classList.remove('hidden');
+                        success.classList.add('animate-pulse');
+                    }, 300);
+                });
+            }
+        }
+    };
+
+    // Initialize on DOM Load
+    document.addEventListener('DOMContentLoaded', () => UI.init());
+</script>
+</body></html>

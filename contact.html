@@ -1,164 +1,384 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
-<head>
+
+<html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Contact — UTPRERAK ARCHITECTS</title>
-
 <!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<!-- Google Fonts: Outfit -->
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/>
-
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Outfit Font (Design System equivalent for Spartan/Century Gothic) -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind design-token configuration -->
-<script src="js/tailwind-config.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#838483",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-tertiary-fixed": "#1a1c1b",
+                        "on-primary-container": "#858383",
+                        "surface-tint": "#5f5e5e",
+                        "secondary": "#5e5e5e",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary-fixed-variant": "#474746",
+                        "tertiary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#454746",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-container": "#e3e2e2",
+                        "background": "#f9f9f9",
+                        "surface-variant": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary-fixed": "#e5e2e1",
+                        "primary-container": "#1c1b1b",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-container": "#eeeeee",
+                        "primary": "#000000",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-highest": "#e2e2e2",
+                        "inverse-primary": "#c8c6c5",
+                        "tertiary-fixed": "#e2e3e1",
+                        "outline": "#747878",
+                        "on-surface-variant": "#444748",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c7c5",
+                        "tertiary-container": "#1a1c1b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#646464",
+                        "on-error": "#ffffff",
+                        "surface": "#f9f9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "section-gap": "128px",
+                        "gutter-desktop": "32px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "body-lg": ["Outfit"],
+                        "label-sm": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "headline-sm": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "300"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.03em", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "300"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Modular CSS Overrides & Custom Components */
+        :root {
+            --font-light: 300;
+        }
 
-<!-- Custom styles -->
-<link rel="stylesheet" href="css/style.css"/>
+        body {
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+            -webkit-font-smoothing: antialiased;
+            font-weight: var(--font-light);
+        }
+
+        /* Leader Dots Component */
+        .dotted-leader {
+            flex-grow: 1;
+            border-bottom: 1px dotted #747878;
+            margin: 0 12px;
+            position: relative;
+            top: -4px;
+        }
+
+        /* Form Reset & Refinement */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #000000 !important;
+        }
+
+        /* Icon Refinement */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Navigation Transitions */
+        .mobile-menu-overlay {
+            clip-path: circle(0% at 100% 0%);
+            transition: clip-path 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .mobile-menu-overlay.active {
+            clip-path: circle(150% at 100% 0%);
+        }
+
+        /* Custom Scrollbar for minimalist feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f9f9f9; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; }
+        ::-webkit-scrollbar-thumb:hover { background: #c4c7c7; }
+    </style>
 </head>
-
-<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
-
-<!-- ============================================
-     TOP APP BAR
-     ============================================ -->
-<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-6 md:px-margin-desktop py-4">
-    <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
-        <span class="font-headline-md text-[24px] font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
-    </div>
-    <nav class="hidden md:flex gap-8 items-center">
-        <a class="font-label-md text-label-md text-secondary hover:opacity-70 transition-opacity duration-150" href="index.html#work">WORK</a>
-        <a class="font-label-md text-label-md text-secondary hover:opacity-70 transition-opacity duration-150" href="index.html#studio">STUDIO</a>
-        <a class="font-label-md text-label-md text-secondary hover:opacity-70 transition-opacity duration-150" href="index.html#journal">JOURNAL</a>
-        <a class="font-label-md text-label-md text-primary font-bold hover:opacity-70 transition-opacity duration-150" href="contact.html">CONTACT</a>
-    </nav>
-    <div class="md:hidden">
-        <span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
-    </div>
+<body class="font-body-md text-on-surface bg-background selection:bg-primary-fixed selection:text-primary">
+<!-- Header Navigation Shell -->
+<nav class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full backdrop-blur-md bg-surface/90 fixed top-0 z-50 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
+</div>
+<!-- Desktop Menu -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 uppercase" href="index.html#work">Work</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 uppercase" href="index.html#studio">Studio</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 uppercase" href="index.html#journal">Journal</a>
+<a class="font-label-md text-label-md text-primary font-bold transition-opacity duration-150 uppercase underline decoration-1 underline-offset-4" href="#contact">Contact</a>
+</div>
+<!-- Desktop Action Button -->
+<button class="hidden md:block font-label-md text-label-md uppercase border border-primary px-6 py-2 hover:bg-primary hover:text-on-primary transition-all duration-300">Menu</button>
+<!-- Mobile Toggle -->
+<button aria-label="Open Menu" class="md:hidden flex items-center text-primary" id="mobile-menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay fixed inset-0 bg-surface z-[60] flex flex-col items-center justify-center gap-8 md:hidden" id="mobile-menu">
+<button aria-label="Close Menu" class="absolute top-4 right-6 text-primary" id="mobile-menu-close">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+<a class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tighter hover:opacity-70" href="#contact">Work</a>
+<a class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tighter hover:opacity-70" href="#contact">Studio</a>
+<a class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tighter hover:opacity-70" href="#contact">Journal</a>
+<a class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tighter underline underline-offset-8" href="#contact">Contact</a>
+</div>
+<!-- Main Content -->
+<main class="pt-32 pb-section-gap px-6 md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<header class="mb-12 md:mb-section-gap">
+<h1 class="font-headline-lg-mobile md:font-display-lg text-headline-lg-mobile md:text-display-lg text-primary font-light uppercase tracking-tighter leading-none">
+                GET IN <br class="hidden md:block"/> TOUCH
+            </h1>
+<div class="w-24 h-px bg-outline-variant mt-8"></div>
 </header>
-
-<main class="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
-
-    <!-- ============================================
-         HERO / PAGE TITLE
-         ============================================ -->
-    <section class="mb-section-gap">
-        <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary uppercase tracking-tighter mb-8 max-w-4xl font-light">
-            Get in Touch
-        </h1>
-        <div class="w-full h-[1px] bg-outline-variant"></div>
-    </section>
-
-    <!-- ============================================
-         GRID CONTENT: FORM + STUDIO DETAILS
-         ============================================ -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-
-        <!-- ===== Left: Contact Form ===== -->
-        <div class="lg:col-span-7">
-            <form class="flex flex-col gap-12">
-
-                <div class="group">
-                    <label class="font-label-md text-label-md text-secondary uppercase block mb-2 transition-colors group-focus-within:text-primary" for="name">Name</label>
-                    <input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary focus:ring-0 placeholder:text-outline/50 font-light" id="name" name="name" placeholder="Your full name" type="text"/>
-                </div>
-
-                <div class="group">
-                    <label class="font-label-md text-label-md text-secondary uppercase block mb-2 transition-colors group-focus-within:text-primary" for="email">Email</label>
-                    <input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary focus:ring-0 placeholder:text-outline/50 font-light" id="email" name="email" placeholder="Email address" type="email"/>
-                </div>
-
-                <div class="group">
-                    <label class="font-label-md text-label-md text-secondary uppercase block mb-2 transition-colors group-focus-within:text-primary" for="inquiry">Project Inquiry</label>
-                    <textarea class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary focus:ring-0 resize-none placeholder:text-outline/50 font-light" id="inquiry" name="inquiry" placeholder="Tell us about your project or vision..." rows="4"></textarea>
-                </div>
-
-                <div class="pt-4">
-                    <button class="bg-primary text-on-primary px-12 py-5 font-label-md text-label-md uppercase tracking-widest active:scale-95 transition-transform duration-150 font-medium" type="submit">
-                        Send Inquiry
-                    </button>
-                </div>
-
-            </form>
-        </div>
-
-        <!-- ===== Right: Studio Details ===== -->
-        <div class="lg:col-span-4 lg:col-start-9 flex flex-col gap-16 mt-16 lg:mt-0">
-
-            <!-- Spec Detail Component -->
-            <div class="flex flex-col gap-6">
-                <h3 class="font-label-md text-label-md text-secondary uppercase">Information</h3>
-
-                <div class="flex items-baseline">
-                    <span class="font-label-md text-label-md text-secondary uppercase whitespace-nowrap">Email</span>
-                    <div class="dotted-leader"></div>
-                    <a class="font-body-md text-body-md text-primary hover:underline font-light" href="mailto:studio@utprerak.arch">studio@utprerak.arch</a>
-                </div>
-
-                <div class="flex items-baseline">
-                    <span class="font-label-md text-label-md text-secondary uppercase whitespace-nowrap">Phone</span>
-                    <div class="dotted-leader"></div>
-                    <span class="font-body-md text-body-md text-primary font-light">+44 (0) 20 7946 0000</span>
-                </div>
-
-                <div class="flex items-baseline">
-                    <span class="font-label-md text-label-md text-secondary uppercase whitespace-nowrap">Office</span>
-                    <div class="dotted-leader"></div>
-                    <span class="font-body-md text-body-md text-primary text-right font-light">42 Brutalist Way, London</span>
-                </div>
-            </div>
-
-            <!-- Map -->
-            <div class="relative w-full aspect-square bg-surface-variant group overflow-hidden border border-outline-variant">
-                <div class="absolute inset-0 grayscale opacity-80 hover:opacity-100 transition-opacity duration-700">
-                    <img alt="Map of London"
-                         class="w-full h-full object-cover"
-                         data-location="London"
-                         src="images/map-london.jpg"/>
-                </div>
-                <!-- UI Overlay -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div class="w-10 h-10 border-2 border-primary bg-background/50 backdrop-blur-sm flex items-center justify-center rounded-full scale-100 group-hover:scale-110 transition-transform duration-300">
-                        <span class="material-symbols-outlined text-primary text-xl" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
-                    </div>
-                </div>
-                <div class="absolute bottom-4 left-4 bg-background px-3 py-1 border border-outline-variant">
-                    <span class="font-label-sm text-label-sm uppercase tracking-tighter">View Larger Map</span>
-                </div>
-            </div>
-
-            <!-- Opening Hours -->
-            <div class="flex flex-col gap-4">
-                <h3 class="font-label-md text-label-md text-secondary uppercase">Studio Hours</h3>
-                <p class="font-body-md text-body-md text-secondary font-light">
-                    Monday — Friday<br/>
-                    09:00 — 18:00 GMT
-                </p>
-            </div>
-
-        </div>
-    </div>
+<!-- Page Grid Layout -->
+<div class="grid grid-cols-12 gap-y-16 md:gap-gutter-desktop">
+<!-- Inquiry Form Section -->
+<section class="col-span-12 md:col-span-5">
+<p class="font-label-md text-label-md uppercase mb-12 tracking-widest text-secondary">Start a Project</p>
+<form autocomplete="off" class="space-y-12" id="contact-form">
+<div class="form-group flex flex-col">
+<label class="font-label-md text-label-md uppercase block mb-2 text-secondary transition-colors duration-300" for="name">Name</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary transition-all duration-300 placeholder:opacity-30 font-light focus:ring-0 focus:border-primary" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+</div>
+<div class="form-group flex flex-col">
+<label class="font-label-md text-label-md uppercase block mb-2 text-secondary transition-colors duration-300" for="email">Email</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary transition-all duration-300 placeholder:opacity-30 font-light focus:ring-0 focus:border-primary" id="email" name="email" placeholder="Email address" required="" type="email"/>
+</div>
+<div class="form-group flex flex-col">
+<label class="font-label-md text-label-md uppercase block mb-2 text-secondary transition-colors duration-300" for="message">Project Inquiry</label>
+<textarea class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-4 px-0 font-body-lg text-body-lg text-primary transition-all duration-300 resize-none placeholder:opacity-30 font-light focus:ring-0 focus:border-primary" id="message" name="message" placeholder="Tell us about your project or vision..." rows="4"></textarea>
+</div>
+<button class="group w-full md:w-auto px-12 py-5 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest transition-all hover:bg-neutral-800 active:scale-95 duration-200 flex items-center justify-center gap-2" id="submit-btn" type="submit">
+<span>SEND INQUIRY</span>
+</button>
+</form>
+</section>
+<!-- Contact Information Section -->
+<section class="col-span-12 md:col-span-6 md:col-start-7 flex flex-col justify-between gap-16">
+<div class="contact-links">
+<p class="font-label-md text-label-md uppercase mb-12 tracking-widest text-secondary">Connect</p>
+<div class="space-y-8">
+<div class="flex items-baseline">
+<span class="font-label-md text-label-md uppercase text-secondary">Email</span>
+<div class="dotted-leader"></div>
+<a class="font-body-md text-body-md text-primary font-light hover:underline" href="mailto:studio@utprerak.arch">studio@utprerak.arch</a>
+</div>
+<div class="flex items-baseline">
+<span class="font-label-md text-label-md uppercase text-secondary">Phone</span>
+<div class="dotted-leader"></div>
+<span class="font-body-md text-body-md text-primary font-light">+44 (0) 20 7946 0000</span>
+</div>
+<div class="flex items-baseline">
+<span class="font-label-md text-label-md uppercase text-secondary">Office</span>
+<div class="dotted-leader"></div>
+<span class="font-body-md text-body-md text-primary text-right font-light">42 Brutalist Way, London</span>
+</div>
+</div>
+</div>
+<!-- Map UI Component -->
+<div class="relative w-full aspect-video md:aspect-square border border-outline-variant overflow-hidden group bg-surface-container-low">
+<img alt="Office Location Map" class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-80 transition-all duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZuashYK4lg9TwIoR_qaDm28BLHz0812JFgAZC9yeqEAObk-PI_nNllvNRKFV8YVQkLBlCnFgG4hGfpsyDBoznFY51vBpca1F3n9D2DHjenWerRCFsdyPEYSVBnNkzGskhNBFgSderUJMKFaCxTxvM2-Gngt_BppDxuWt_fu730yT8PST_RiGYEoqvntRafye84j_I6phWgPQKsA0T0VUg7_0FN1yJ5iVy6JRZ6dFY6aFGCORH33ipzdsmW3uuAye54EHY8iQG3n8"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-10 h-10 border-2 border-primary bg-background/50 backdrop-blur-sm flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 bg-background px-4 py-2 border border-outline-variant shadow-sm hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="font-label-sm text-label-sm uppercase tracking-tighter">View Larger Map</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Studio Hours Section -->
+<section class="mt-section-gap border-t border-outline-variant pt-12">
+<div class="grid grid-cols-12 gap-y-8 md:gap-gutter-desktop items-start">
+<div class="col-span-12 md:col-span-4">
+<p class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-4">Studio Hours</p>
+<p class="font-body-md text-body-md font-light text-on-surface-variant max-w-xs">Our team is available for consultations during business hours in London.</p>
+</div>
+<div class="col-span-12 md:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-secondary block mb-2">Mon — Fri</span>
+<span class="font-headline-md text-headline-md text-primary font-light">09:00 — 18:00</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-secondary block mb-2">Saturday</span>
+<span class="font-headline-md text-headline-md text-primary font-light">By Appointment</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-secondary block mb-2">Sunday</span>
+<span class="font-headline-md text-headline-md text-secondary/40 font-light">Closed</span>
+</div>
+</div>
+</div>
+</section>
 </main>
-
-<!-- ============================================
-     FOOTER
-     ============================================ -->
-<footer class="w-full border-t border-outline-variant bg-surface flex flex-col md:flex-row justify-between items-center px-margin-desktop py-16 gap-8">
-    <div class="flex flex-col gap-2 items-center md:items-start text-center md:text-left">
-        <span class="font-headline-sm text-headline-sm text-primary font-bold uppercase tracking-tighter">UTPRERAK</span>
-        <p class="font-label-sm text-label-sm text-secondary uppercase">© 2024 UTPRERAK ARCHITECTS</p>
-    </div>
-    <div class="flex gap-12">
-        <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-150 uppercase" href="#">Instagram</a>
-        <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-150 uppercase" href="#">LinkedIn</a>
-        <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-150 uppercase" href="#">Journal</a>
-    </div>
+<!-- Footer Section Shell -->
+<footer class="flex flex-col md:flex-row justify-between items-center px-6 md:px-margin-desktop py-16 w-full gap-12 bg-surface border-t border-outline-variant">
+<div class="flex flex-col gap-2 items-center md:items-start text-center md:text-left">
+<span class="font-headline-sm text-headline-sm text-primary font-bold uppercase tracking-tighter">UTPRERAK</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">© 2026 UTPRERAK ARCHITECTS</span>
+</div>
+<div class="flex gap-12">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-150" href="#contact">Instagram</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-150" href="#contact">LinkedIn</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-150" href="#contact">Journal</a>
+</div>
 </footer>
+<!-- Modular Vanilla JS -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Mobile Menu Logic
+            const initMobileMenu = () => {
+                const menuToggle = document.getElementById('mobile-menu-toggle');
+                const menuClose = document.getElementById('mobile-menu-close');
+                const mobileMenu = document.getElementById('mobile-menu');
 
-<!-- Page scripts -->
-<script src="js/main.js"></script>
-</body>
-</html>
+                if (menuToggle && menuClose && mobileMenu) {
+                    menuToggle.addEventListener('click', () => {
+                        mobileMenu.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+
+                    menuClose.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+
+                    // Close menu on link click
+                    mobileMenu.querySelectorAll('a').forEach(link => {
+                        link.addEventListener('click', () => {
+                            mobileMenu.classList.remove('active');
+                            document.body.style.overflow = '';
+                        });
+                    });
+                }
+            };
+
+            // 2. Form Submission Handler
+            const initContactForm = () => {
+                const contactForm = document.getElementById('contact-form');
+                if (!contactForm) return;
+
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const btn = contactForm.querySelector('#submit-btn');
+                    const btnText = btn.querySelector('span');
+                    const originalText = btnText.innerText;
+                    
+                    // Loading State
+                    btnText.innerText = 'SENDING...';
+                    btn.disabled = true;
+                    btn.classList.add('opacity-50', 'cursor-not-allowed');
+
+                    // Simulate API Delay
+                    setTimeout(() => {
+                        btnText.innerText = 'INQUIRY SENT';
+                        btn.classList.remove('bg-primary');
+                        btn.classList.add('bg-green-700');
+                        
+                        setTimeout(() => {
+                            contactForm.reset();
+                            btnText.innerText = originalText;
+                            btn.disabled = false;
+                            btn.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-green-700');
+                            btn.classList.add('bg-primary');
+                            
+                            // Reset labels
+                            document.querySelectorAll('.form-group label').forEach(l => l.classList.remove('text-primary'));
+                        }, 3000);
+                    }, 1500);
+                });
+            };
+
+            // 3. UI Interactions (Labels)
+            const initUIInteractions = () => {
+                const inputs = document.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', () => {
+                        const label = input.closest('.form-group').querySelector('label');
+                        if (label) label.classList.add('text-primary');
+                    });
+                    
+                    input.addEventListener('blur', () => {
+                        const label = input.closest('.form-group').querySelector('label');
+                        if (label && input.value === "") {
+                            label.classList.remove('text-primary');
+                        }
+                    });
+                });
+            };
+
+            // Initialize all modules
+            initMobileMenu();
+            initContactForm();
+            initUIInteractions();
+        });
+    </script>
+</body></html>
