@@ -4,9 +4,13 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>UTPRERAK | Accelerating Vision into Form.</title>
-    
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght=100;200;300;400;500&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <style>
@@ -31,11 +35,27 @@
             to { transform: scale(1.1); }
         }
 
+        /* Individual Card Slide-Up Animations */
+        .project-card-reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+            will-change: transform, opacity;
+        }
+        
+        .project-card-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section wrapper starts visible, individual dynamic child nodes animate instead */
         .reveal-on-scroll {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(100px);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
+            will-change: transform, opacity;
         }
+        
         .reveal-on-scroll.active {
             opacity: 1;
             transform: translateY(0);
@@ -56,7 +76,6 @@
             clip-path: circle(150% at 100% 0%);
         }
 
-        /* Utility for Spartan-like feel using Outfit Light */
         .font-spartan-light {
             font-family: var(--font-main);
             font-weight: 200;
@@ -100,10 +119,11 @@
 <body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary font-body font-light overflow-x-hidden">
 
     <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center transition-all duration-300" id="main-header">
-        <a class="flex items-center gap-2 group" href="/">
-            <span class="material-symbols-outlined text-primary">architecture</span>
-            <span class="text-[20px] md:text-[24px] font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
-        </a>
+    <a class="flex items-center gap-3 group" href="/">
+        <img src="images/utprerak-logo.png" alt="" class="h-8 w-auto bg-transparent object-contain transition-transform group-hover:scale-105" />
+        
+        <span class="text-[20px] md:text-[24px] font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
+    </a>
         <nav class="hidden md:flex gap-12">
             <a class="text-[14px] text-primary font-medium hover:opacity-70 transition-opacity uppercase tracking-widest" href="#vision">Vision</a>
             <a class="text-[14px] text-secondary hover:opacity-70 transition-opacity uppercase tracking-widest" href="#work">Work</a>
@@ -117,12 +137,12 @@
     </header>
 
     <div class="mobile-menu-overlay fixed inset-0 bg-surface z-[60] flex flex-col items-center justify-center gap-12 text-center md:hidden" id="mobile-menu">
-    <button aria-label="Close Menu" class="absolute top-4 right-margin-mobile text-primary p-2" id="mobile-menu-close">
-        <span class="material-symbols-outlined text-3xl">close</span>
-    </button>
-    <a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="#vision">Vision</a>
-    <a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="#work">Work</a>
-    <a class="text-[14px] uppercase px-12 py-4 border border-primary bg-primary text-on-primary" href="contact.html">Contact</a>
+        <button aria-label="Close Menu" class="absolute top-4 right-margin-mobile text-primary p-2" id="mobile-menu-close">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="#vision">Vision</a>
+        <a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="#work">Work</a>
+        <a class="text-[14px] uppercase px-12 py-4 border border-primary bg-primary text-on-primary" href="contact.html">Contact</a>
     </div>
 
     <main>
@@ -163,6 +183,21 @@
             </div>
         </section>
 
+        <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-primary text-on-primary" id="contact">
+            <p class="reveal-item opacity-0 translate-y-8 transition-all duration-1000 ease-out text-[40px] md:text-[64px] mb-12 tracking-tighter font-spartan-light uppercase">
+                50+ Projects
+            </p>
+            <p class="reveal-item opacity-0 translate-y-8 transition-all duration-1000 ease-out text-[40px] md:text-[64px] mb-12 tracking-tighter font-spartan-light uppercase">
+                40+ clients
+            </p>
+            <p class="reveal-item opacity-0 translate-y-8 transition-all duration-1000 ease-out text-[40px] md:text-[64px] mb-12 tracking-tighter font-spartan-light uppercase">
+                12+ cities
+            </p>    
+            <p class="reveal-item opacity-0 translate-y-8 transition-all duration-1000 ease-out text-[40px] md:text-[64px] mb-12 tracking-tighter font-spartan-light uppercase">
+                3 countries
+            </p>   
+        </section>  
+
         <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low reveal-on-scroll" id="work">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
                 <div>
@@ -171,8 +206,12 @@
                 </div>
             </div>
 
-            <div id="featuredGalleryContainer">
-                <p class="text-secondary uppercase tracking-widest text-[14px]">Loading Projects...</p>
+            <div id="featuredGalleryContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start w-full">
+                <p class="text-secondary uppercase tracking-widest text-[14px]" id="gallery-loader-text">Loading Projects...</p>
+            </div>
+
+            <div id="infinite-scroll-trigger" class="w-full h-10 mt-12 flex justify-center items-center">
+                <div id="loading-spinner" class="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin hidden"></div>
             </div>
         </section>
     </main>
@@ -192,28 +231,22 @@
         </div>
     </footer>
 
-    <script>
+ <script>
         const UI = {
+            // Configuration for Paginated / Infinite Scrolling
+            allProjectData: [],
+            renderedCount: 0,
+            itemsPerBatch: 3, 
+            cardObserver: null,
+            scrollIntersectionObserver: null, 
+
             init() {
-                this.setupScrollObserver();
                 this.setupHeaderScroll();
                 this.setupMobileMenu();
-                this.setupFeaturedProject();
-            },
-            setupScrollObserver() {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('active');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.15 });
-
-                const vision = document.getElementById('vision');
-                const work = document.getElementById('work');
-                if (vision) observer.observe(vision);
-                if (work) observer.observe(work);
+                this.setupActiveNavigationHighlight();
+                this.setupGlobalRevealObserver();
+                this.initializeInfiniteGallery(); 
+                this.setupGranularStatsObserver(); // New per-item stats trigger
             },
             setupHeaderScroll() {
                 const header = document.getElementById('main-header');
@@ -233,19 +266,16 @@
                 const menu = document.getElementById('mobile-menu');
                 
                 if (btn && menu && close) {
-                    // Triggers the circle expanding outward from top-right corner
                     btn.addEventListener('click', () => {
                         menu.classList.add('active');
-                        document.body.style.overflow = 'hidden'; // Locks body scroll background
+                        document.body.style.overflow = 'hidden';
                     });
 
-                    // Pulls the circle frame backward to close
                     close.addEventListener('click', () => {
                         menu.classList.remove('active');
-                        document.body.style.overflow = ''; // Restores scrolling
+                        document.body.style.overflow = '';
                     });
                     
-                    // Auto-dismisses window if navigation anchors are triggered
                     menu.querySelectorAll('a').forEach(link => {
                         link.addEventListener('click', () => {
                             menu.classList.remove('active');
@@ -254,50 +284,190 @@
                     });
                 }
             },
-            setupFeaturedProject() {
+            initializeInfiniteGallery() {
+                const container = document.getElementById('featuredGalleryContainer');
+                
+                // Card-Specific Intersector: Fires animation AND switches placeholder attributes to active image paths
+                this.cardObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const card = entry.target;
+                            const lazyImg = card.querySelector('img[data-src]');
+                            
+                            // Swap data attribute to real source only when card is directly entering viewport frame
+                            if (lazyImg) {
+                                lazyImg.src = lazyImg.getAttribute('data-src');
+                                lazyImg.removeAttribute('data-src');
+                            }
+                            
+                            card.classList.add('active');
+                            this.cardObserver.unobserve(card);
+                        }
+                    });
+                }, { threshold: 0.02, rootMargin: '0px 0px 80px 0px' }); // Fires 80px before explicit item display
+
                 fetch('gallery-data.json')
                     .then(res => res.json())
                     .then(data => {
-                        const workContainer = document.getElementById('featuredGalleryContainer');
-                        if (!workContainer) return;
+                        const loaderText = document.getElementById('gallery-loader-text');
+                        if (loaderText) loaderText.remove();
 
-                        workContainer.innerHTML = '';
-                        workContainer.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start w-full";
+                        this.allProjectData = data.filter(group => group.images.length > 0);
+                        
+                        // Load initial shell batch setup
+                        this.loadNextBatch();
 
-                        data.forEach(folderGroup => {
-                            if (folderGroup.images.length > 0) {
-                                const featuredImage = folderGroup.images[0];
-                                const isSingleImage = folderGroup.images.length === 1;
-                                const card = document.createElement(isSingleImage ? 'div' : 'a');
-                                
-                                if (!isSingleImage) {
-                                    card.href = `gallery.html?folder=${folderGroup.folder}`;
-                                }
-                                
-                                card.className = `group block w-full ${isSingleImage ? 'cursor-default' : 'cursor-pointer'}`;
-                                card.innerHTML = `
-                                    <div class="overflow-hidden bg-zinc-200 mb-6 aspect-[4/5] relative w-full">
-                                        <img alt="${featuredImage.caption}" 
-                                             class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
-                                             src="images/${folderGroup.folder}/${featuredImage.src}" />
-                                        <div class="${isSingleImage ? 'hidden' : ''} absolute inset-0 bg-black/40 text-white flex items-center justify-center p-6 text-center text-[16px] font-spartan-light uppercase tracking-widest opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                            Enter Full Gallery
-                                        </div>
-                                    </div>
-                                    <header class="flex justify-between items-start w-full px-1 sm:px-0">
-                                        <div>
-                                            <h4 class="text-[20px] md:text-[22px] text-primary mb-1 uppercase font-spartan-light tracking-wide leading-tight">${featuredImage.caption}</h4>
-                                            <p class="text-[12px] text-secondary uppercase tracking-widest">Collection • ${folderGroup.folder}</p>
-                                        </div>
-                                    </header>
-                                `;
-                                workContainer.appendChild(card);
-                            }
+                        window.requestAnimationFrame(() => {
+                            setTimeout(() => {
+                                this.setupInfiniteScrollTrigger();
+                            }, 100);
                         });
                     })
-                    .catch(err => console.error("Error setting index card components:", err));
+                    .catch(err => {
+                        console.error("Error setting index card components:", err);
+                        if (container) container.innerHTML = `<p class="text-secondary">Error loading archival project images.</p>`;
+                    });
+            },
+            loadNextBatch() {
+                const container = document.getElementById('featuredGalleryContainer');
+                if (!container) return;
+
+                const spinner = document.getElementById('loading-spinner');
+                if (spinner) spinner.classList.remove('hidden');
+
+                const start = this.renderedCount;
+                const end = Math.min(start + this.itemsPerBatch, this.allProjectData.length);
+                const batch = this.allProjectData.slice(start, end);
+
+                batch.forEach(folderGroup => {
+                    const featuredImage = folderGroup.images[0];
+                    const isSingleImage = folderGroup.images.length === 1;
+                    const card = document.createElement(isSingleImage ? 'div' : 'a');
+                    
+                    if (!isSingleImage) {
+                        card.href = `gallery.html?folder=${folderGroup.folder}`;
+                    }
+                    
+                    card.className = `group block w-full project-card-reveal ${isSingleImage ? 'cursor-default' : 'cursor-pointer'}`;
+                    
+                    // Notice we use data-src instead of src to block early background image downlinks
+                    card.innerHTML = `
+                        <div class="overflow-hidden bg-zinc-200 mb-6 aspect-[4/5] relative w-full">
+                            <img alt="${featuredImage.caption}" 
+                                 loading="lazy"
+                                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
+                                 data-src="images/${folderGroup.folder}/${featuredImage.src}" 
+                                 src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 4 5'%2F%3E"/>
+                            <div class="${isSingleImage ? 'hidden' : ''} absolute inset-0 bg-black/40 text-white flex items-center justify-center p-6 text-center text-[16px] font-spartan-light uppercase tracking-widest opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                                Enter Full Gallery
+                            </div>
+                        </div>
+                        <header class="flex justify-between items-start w-full px-1 sm:px-0">
+                            <div>
+                                <h4 class="text-[20px] md:text-[22px] text-primary mb-1 uppercase font-spartan-light tracking-wide leading-tight">${featuredImage.caption}</h4>
+                                <p class="text-[12px] text-secondary uppercase tracking-widest">Collection • ${folderGroup.folder}</p>
+                            </div>
+                        </header>
+                    `;
+                    
+                    container.appendChild(card);
+                    
+                    // Observe card container shell immediately
+                    this.cardObserver.observe(card);
+                });
+
+                this.renderedCount = end;
+                if (spinner) spinner.classList.add('hidden');
+
+                if (this.renderedCount >= this.allProjectData.length) {
+                    if (this.scrollIntersectionObserver) {
+                        this.scrollIntersectionObserver.disconnect();
+                    }
+                    const triggerZone = document.getElementById('infinite-scroll-trigger');
+                    if (triggerZone) triggerZone.remove();
+                }
+            },
+            setupInfiniteScrollTrigger() {
+                const triggerZone = document.getElementById('infinite-scroll-trigger');
+                if (!triggerZone) return;
+
+                this.scrollIntersectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && this.renderedCount < this.allProjectData.length) {
+                            this.loadNextBatch();
+                        }
+                    });
+                }, { rootMargin: '0px 0px 150px 0px' }); // Reduced to prevent aggressive pre-fetching
+
+                this.scrollIntersectionObserver.observe(triggerZone);
+            },
+            setupActiveNavigationHighlight() {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('#main-header nav a');
+
+                const navObserverOptions = {
+                    root: null,
+                    rootMargin: '-40% 0px -40% 0px',
+                    threshold: 0
+                };
+
+                const navObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const activeId = entry.target.getAttribute('id');
+                            navLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${activeId}`) {
+                                    link.classList.add('text-primary', 'font-medium');
+                                    link.classList.remove('text-secondary');
+                                } else {
+                                    link.classList.remove('text-primary', 'font-medium');
+                                    link.classList.add('text-secondary');
+                                }
+                            });
+                        }
+                    });
+                }, navObserverOptions);
+
+                sections.forEach(section => navObserver.observe(section));
+            },
+            setupGlobalRevealObserver() {
+                const revealObserverOptions = {
+                    root: null,
+                    rootMargin: '0px 0px -5% 0px',
+                    threshold: 0.01
+                };
+
+                const scrollObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, revealObserverOptions);
+
+                const sectionsToReveal = document.querySelectorAll('.reveal-on-scroll');
+                sectionsToReveal.forEach(section => scrollObserver.observe(section));
+            },
+            setupGranularStatsObserver() {
+                // Granular single-line item tracker for metrics counters
+                const statsItemObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Elements now fade up individually as they cross onto the screen
+                            entry.target.classList.remove('opacity-0', 'translate-y-8');
+                            entry.target.classList.add('opacity-100', 'translate-y-0');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+                const metrics = document.querySelectorAll('#contact .reveal-item');
+                metrics.forEach(metric => statsItemObserver.observe(metric));
             }
         };
+
+        // DOM Initializer loop clean of structural tracking overheads
         document.addEventListener('DOMContentLoaded', () => UI.init());
     </script>
 </body>
