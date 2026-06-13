@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Gallery</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'spartan-light': ['"League Spartan"', 'sans-serif'] },
+                    colors: {
+                        'surface': '#f9f9f9',
+                        'primary': '#1a1a1a',
+                        'secondary': '#767676',
+                        'outline-variant': '#e5e5e5',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="gallery.js" defer></script>
+</head>
+<body class="bg-white">
+
+    <header class="max-w-[90vw] xl:max-w-[1600px] mx-auto pt-12 pb-6 flex justify-between items-center">
+        <a href="#" onclick="history.back(); return false;" class="text-[14px] uppercase tracking-widest text-secondary hover:text-primary transition-colors">← Return Home</a>
+    </header>
+
+    <main id="galleryContainer" class="max-w-[90vw] xl:max-w-[1600px] mx-auto pb-24"></main>
+
+</body>
+</html>

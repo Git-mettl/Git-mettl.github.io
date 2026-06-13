@@ -160,16 +160,16 @@
 <nav class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full backdrop-blur-md bg-surface/90 fixed top-0 z-50 border-b border-outline-variant">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
-<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
+<a class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase" href="/">UTPRERAK</a>
 </div>
 <!-- Desktop Menu -->
 <div class="hidden md:flex items-center gap-8">
-<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 uppercase" href="index.html#work">Work</a>
 <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 uppercase" href="index.html#vision">Vision</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 uppercase" href="index.html#work">Work</a>
 <a class="font-label-md text-label-md text-primary font-bold transition-opacity duration-150 uppercase underline decoration-1 underline-offset-4" href="#contact">Contact</a>
 </div>
 <!-- Desktop Action Button -->
-<button class="hidden md:block font-label-md text-label-md uppercase border border-primary px-6 py-2 hover:bg-primary hover:text-on-primary transition-all duration-300">Menu</button>
+<button class="hidden md:block font-label-md text-label-md uppercase border border-primary px-6 py-2 hover:bg-primary hover:text-on-primary transition-all duration-300" onclick="window.location.href='/'">Home</button>
 <!-- Mobile Toggle -->
 <button aria-label="Open Menu" class="md:hidden flex items-center text-primary" id="mobile-menu-toggle">
 <span class="material-symbols-outlined">menu</span>
@@ -247,16 +247,19 @@
 </div>
 <!-- Map UI Component -->
 <div class="relative w-full aspect-video md:aspect-square border border-outline-variant overflow-hidden group bg-surface-container-low">
-<img alt="Office Location Map" 
-     class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-80 transition-all duration-1000 group-hover:scale-105" 
-     src="https://image.maps.openfreemap.org/b64/v1/liberty/600x300/14.5/12.9105/77.5857.png"/>
+<iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.249767220268!2d77.5756825!3d12.9063433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f30!3m3!1m2!1s0x3bae150d7349a72b%3A0xf3d03ea1e1dd3d46!2sJ.%20P.%20Nagar%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1718276000000!5m2!1sen!2sin" 
+    class="w-full h-full border-0"
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+
 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
 <div class="w-10 h-10 border-2 border-primary bg-background/50 backdrop-blur-sm flex items-center justify-center rounded-full">
 <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
 </div>
-</div>
-<div class="absolute bottom-4 left-4 bg-background px-4 py-2 border border-outline-variant shadow-sm hover:bg-surface-container-high transition-colors cursor-pointer">
-<span class="font-label-sm text-label-sm uppercase tracking-tighter">View Larger Map</span>
 </div>
 </div>
 </section>
@@ -287,15 +290,19 @@
 </main>
 <!-- Footer Section Shell -->
 <footer class="flex flex-col md:flex-row justify-between items-center px-6 md:px-margin-desktop py-16 w-full gap-12 bg-surface border-t border-outline-variant">
-<div class="flex flex-col gap-2 items-center md:items-start text-center md:text-left">
-<span class="font-headline-sm text-headline-sm text-primary font-bold uppercase tracking-tighter">UTPRERAK</span>
-<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">© 2026 UTPRERAK ARCHITECTS</span>
-</div>
-<div class="flex gap-12">
-<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-150" href="https://www.instagram.com/utprerak.co.in/">Instagram</a>
-<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-150" href="https://www.linkedin.com/company/utprerak/">LinkedIn</a>
-
-</div>
+    <div class="flex flex-col gap-2 items-center md:items-start text-center md:text-left">
+        <span class="font-headline-sm text-headline-sm text-primary font-bold uppercase tracking-tighter">UTPRERAK</span>
+        <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">© 2026 UTPRERAK ARCHITECTS</span>
+        <!-- Added a bit more space above the credit line -->
+        <span class="font-label-sm text-[11px] text-secondary/70 uppercase tracking-widest mt-3">
+            Web Design by <a href="https://www.mkvarun.com" class="text-primary hover:opacity-70 transition-opacity underline underline-offset-4">Varun M. Kumar</a>
+        </span>
+    </div>
+    
+    <div class="flex gap-12">
+        <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-150" href="https://www.instagram.com/utprerak.co.in/">Instagram</a>
+        <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-150" href="https://www.linkedin.com/company/utprerak/">LinkedIn</a>
+    </div>
 </footer>
 <!-- Modular Vanilla JS -->
 <script>
