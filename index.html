@@ -48,9 +48,12 @@
             margin-bottom: 6px;
         }
 
-        /* Transition for Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        .mobile-menu-overlay {
+            clip-path: circle(0% at 100% 0%);
+            transition: clip-path 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .mobile-menu-overlay.active {
+            clip-path: circle(150% at 100% 0%);
         }
 
         /* Utility for Spartan-like feel using Outfit Light */
@@ -58,55 +61,6 @@
             font-family: var(--font-main);
             font-weight: 200;
             letter-spacing: -0.01em;
-        }
-
-        .carousel-container {
-            display: flex;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 10px;
-        }
-
-        .carousel {
-            width: 90%;
-            display: flex;
-            overflow-x: auto; 
-            scroll-snap-type: x mandatory; 
-            overflow-y: hidden; 
-            -webkit-overflow-scrolling: touch; 
-            scrollbar-width: none;
-            margin: 0 auto;
-        }
-
-        .carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        .carousel .item {
-            flex: 0 0 450px; 
-            height: 350px;
-            margin-right: 8px;
-            scroll-snap-align: start;
-            background-color: lightblue; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .arrow-btn {
-            background: #333;
-            color: white;
-            border: none;
-            padding: 15px 10px;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 4px;
-            transition: background 0.2s;
-        }
-
-        .arrow-btn:hover {
-            background: #555;
         }
     </style>
 
@@ -162,19 +116,14 @@
         </div>
     </header>
 
-    <aside class="fixed inset-0 z-[60] bg-surface translate-x-full md:hidden" id="mobile-menu">
-        <div class="flex justify-between items-center px-margin-mobile py-4 border-b border-outline-variant">
-            <span class="text-[20px] font-bold tracking-tighter text-primary uppercase">UTPRERAK</span>
-            <button aria-label="Close Menu" class="text-primary p-2" id="mobile-menu-close">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-        </div>
-        <nav class="flex flex-col items-center justify-center h-[calc(100%-80px)] gap-12 text-center">
-            <a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="#work">Work</a>
-            <a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="#vision">Vision</a>
-            <a class="text-[14px] uppercase px-12 py-4 border border-primary bg-primary text-on-primary" href="contact.html">Contact</a>
-        </nav>
-    </aside>
+    <div class="mobile-menu-overlay fixed inset-0 bg-surface z-[60] flex flex-col items-center justify-center gap-12 text-center md:hidden" id="mobile-menu">
+    <button aria-label="Close Menu" class="absolute top-4 right-margin-mobile text-primary p-2" id="mobile-menu-close">
+        <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    <a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="#vision">Vision</a>
+    <a class="text-[24px] text-primary uppercase tracking-[0.2em]" href="#work">Work</a>
+    <a class="text-[14px] uppercase px-12 py-4 border border-primary bg-primary text-on-primary" href="contact.html">Contact</a>
+    </div>
 
     <main>
         <section class="relative h-screen w-full overflow-hidden flex items-center px-margin-mobile md:px-margin-desktop">
@@ -228,44 +177,20 @@
         </section>
     </main>
 
-    <footer class="bg-surface border-t border-outline-variant px-margin-mobile md:px-margin-desktop pt-20 pb-8 flex flex-col justify-between gap-8">
-    <!-- Main Footer Content Grid -->
-    <div class="flex flex-col md:flex-row justify-between items-start gap-12 w-full">
-        <div class="max-w-xs w-full md:w-auto text-center md:text-left">
-            <div class="flex items-center justify-center md:justify-start gap-2 mb-8">
-                <span class="material-symbols-outlined text-primary">architecture</span>
-                <span class="text-[24px] font-bold uppercase tracking-tighter">UTPRERAK</span>
-            </div>
-            <address class="text-[12px] text-secondary uppercase leading-loose tracking-widest font-light not-italic">
-                © 2026 UTPRERAK ARCHITECTS<br/>
-                JP Nagar, Bangalore<br/>
-                India, 560001
-            </address>
+    <footer class="flex flex-col md:flex-row justify-between items-center px-6 md:px-margin-desktop py-16 w-full gap-12 bg-surface border-t border-outline-variant">
+        <div class="flex flex-col gap-2 items-center md:items-start text-center md:text-left">
+            <span class="font-headline-sm text-headline-sm text-primary font-bold uppercase tracking-tighter">UTPRERAK</span>
+            <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">© 2026 UTPRERAK ARCHITECTS</span>
+            <span class="font-label-sm text-[11px] text-secondary/70 uppercase tracking-widest mt-3">
+                Designed by <a href="https://www.mkvarun.com" class="text-primary hover:opacity-70 transition-opacity underline underline-offset-4">Varun M. Kumar</a>
+            </span>
         </div>
-        <div class="grid grid-cols-2 gap-12 w-full md:w-auto">
-            <div class="flex flex-col gap-4">
-                <span class="text-[14px] text-primary font-bold mb-2 tracking-widest uppercase">SOCIAL</span>
-                <nav class="flex flex-col gap-3">
-                    <a class="text-[12px] text-secondary uppercase hover:text-primary transition-colors tracking-widest" href="https://www.instagram.com/utprerak.co.in/">Instagram</a>
-                    <a class="text-[12px] text-secondary uppercase hover:text-primary transition-colors tracking-widest" href="https://www.linkedin.com/company/utprerak/">LinkedIn</a>
-                </nav>
-            </div>
-            <div class="flex flex-col gap-4">
-                <span class="text-[14px] text-primary font-bold mb-2 tracking-widest uppercase">OFFICE</span>
-                <address class="text-[12px] text-secondary uppercase tracking-widest leading-relaxed not-italic">
-                    JP Nagar, Bangalore<br/>
-                    India, 560001
-                </address>
-            </div>
+        
+        <div class="flex gap-12">
+            <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-150" href="https://www.instagram.com/utprerak.co.in/">Instagram</a>
+            <a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors duration-150" href="https://www.linkedin.com/company/utprerak/">LinkedIn</a>
         </div>
-    </div>
-
-    <div class="flex flex-col md:flex-row justify-end items-center w-full text-[11px] text-secondary/70 uppercase tracking-[0.2em] font-light">
-        <div>
-            Web Design by <a href="https://www.mkvarun.com" class="text-primary font-normal hover:opacity-70 transition-opacity underline decoration-outline-variant underline-offset-4">Varun M. Kumar</a>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script>
         const UI = {
@@ -303,63 +228,75 @@
                 });
             },
             setupMobileMenu() {
-                const btn = document.getElementById('mobile-menu-btn');
+                const btn = document.getElementById('mobile-menu-toggle') || document.getElementById('mobile-menu-btn');
                 const close = document.getElementById('mobile-menu-close');
                 const menu = document.getElementById('mobile-menu');
-                if(btn && menu && close) {
-                    btn.addEventListener('click', () => menu.classList.remove('translate-x-full'));
-                    close.addEventListener('click', () => menu.classList.add('translate-x-full'));
+                
+                if (btn && menu && close) {
+                    // Triggers the circle expanding outward from top-right corner
+                    btn.addEventListener('click', () => {
+                        menu.classList.add('active');
+                        document.body.style.overflow = 'hidden'; // Locks body scroll background
+                    });
+
+                    // Pulls the circle frame backward to close
+                    close.addEventListener('click', () => {
+                        menu.classList.remove('active');
+                        document.body.style.overflow = ''; // Restores scrolling
+                    });
+                    
+                    // Auto-dismisses window if navigation anchors are triggered
+                    menu.querySelectorAll('a').forEach(link => {
+                        link.addEventListener('click', () => {
+                            menu.classList.remove('active');
+                            document.body.style.overflow = '';
+                        });
+                    });
                 }
             },
             setupFeaturedProject() {
-    fetch('gallery-data.json')
-        .then(res => res.json())
-        .then(data => {
-            const workContainer = document.getElementById('featuredGalleryContainer');
-            if (!workContainer) return;
+                fetch('gallery-data.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        const workContainer = document.getElementById('featuredGalleryContainer');
+                        if (!workContainer) return;
 
-            workContainer.innerHTML = '';
-            workContainer.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start w-full";
+                        workContainer.innerHTML = '';
+                        workContainer.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start w-full";
 
-            data.forEach(folderGroup => {
-                if (folderGroup.images.length > 0) {
-                    const featuredImage = folderGroup.images[0];
-
-                    // 1. Create a dynamic element depending on image count
-                    const isSingleImage = folderGroup.images.length === 1;
-                    const card = document.createElement(isSingleImage ? 'div' : 'a');
-                    
-                    // 2. Only add the gallery link if there are multiple images
-                    if (!isSingleImage) {
-                        card.href = `gallery.html?folder=${folderGroup.folder}`;
-                    }
-                    
-                    // Adjusted cursor style so single images don't look clickable
-                    card.className = `group block w-full ${isSingleImage ? 'cursor-default' : 'cursor-pointer'}`;
-
-                    // 3. Render HTML - The overlay now gets an absolute 'hidden' style if it's a single image
-                    card.innerHTML = `
-                        <div class="overflow-hidden bg-zinc-200 mb-6 aspect-[4/5] relative">
-                            <img alt="${featuredImage.caption}" 
-                                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
-                                 src="images/${folderGroup.folder}/${featuredImage.src}" />
-                            <div class="${isSingleImage ? 'hidden' : ''} absolute inset-0 bg-black/40 text-white flex items-center justify-center p-6 text-center text-[16px] font-spartan-light uppercase tracking-widest opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                                Enter Full Gallery
-                            </div>
-                        </div>
-                        <header class="flex justify-between items-start">
-                            <div>
-                                <h4 class="text-[22px] text-primary mb-1 uppercase font-spartan-light tracking-wide">${featuredImage.caption}</h4>
-                                <p class="text-[12px] text-secondary uppercase tracking-widest">Collection • ${folderGroup.folder}</p>
-                            </div>
-                        </header>
-                    `;
-                    workContainer.appendChild(card);
-                }
-            });
-        })
-        .catch(err => console.error("Error setting index card components:", err));
-}
+                        data.forEach(folderGroup => {
+                            if (folderGroup.images.length > 0) {
+                                const featuredImage = folderGroup.images[0];
+                                const isSingleImage = folderGroup.images.length === 1;
+                                const card = document.createElement(isSingleImage ? 'div' : 'a');
+                                
+                                if (!isSingleImage) {
+                                    card.href = `gallery.html?folder=${folderGroup.folder}`;
+                                }
+                                
+                                card.className = `group block w-full ${isSingleImage ? 'cursor-default' : 'cursor-pointer'}`;
+                                card.innerHTML = `
+                                    <div class="overflow-hidden bg-zinc-200 mb-6 aspect-[4/5] relative w-full">
+                                        <img alt="${featuredImage.caption}" 
+                                             class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
+                                             src="images/${folderGroup.folder}/${featuredImage.src}" />
+                                        <div class="${isSingleImage ? 'hidden' : ''} absolute inset-0 bg-black/40 text-white flex items-center justify-center p-6 text-center text-[16px] font-spartan-light uppercase tracking-widest opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                                            Enter Full Gallery
+                                        </div>
+                                    </div>
+                                    <header class="flex justify-between items-start w-full px-1 sm:px-0">
+                                        <div>
+                                            <h4 class="text-[20px] md:text-[22px] text-primary mb-1 uppercase font-spartan-light tracking-wide leading-tight">${featuredImage.caption}</h4>
+                                            <p class="text-[12px] text-secondary uppercase tracking-widest">Collection • ${folderGroup.folder}</p>
+                                        </div>
+                                    </header>
+                                `;
+                                workContainer.appendChild(card);
+                            }
+                        });
+                    })
+                    .catch(err => console.error("Error setting index card components:", err));
+            }
         };
         document.addEventListener('DOMContentLoaded', () => UI.init());
     </script>
