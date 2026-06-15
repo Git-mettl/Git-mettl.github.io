@@ -1,10 +1,12 @@
 [
   {
     "folder": "AAD",
+    "caption": "AL ATTAR TOWER 1BHK",
+    "location": "Dubai",
     "images": [
       {
         "src": "AAD-1BHK_VIEW 1-3.webp",
-        "caption": "Image AAD-1BHK_VIEW 1-3",
+        "caption": "AL ATTAR TOWER 1BHK",
         "hover-caption": "CAPTION COMING SOON"
       },
       {
@@ -16,11 +18,14 @@
   },
   {
     "folder": "AMB",
+    "caption": "DR. BR AMBEDKAR CIRCLE",
+    "location": "Mangalore",
     "images": [
       {
         "src": "AMB HERO SHOT.webp",
-        "caption": "Image AMB HERO SHOT",
+        "caption": "DR. BR AMBEDKAR CIRCLE",
         "hover-caption": "CAPTION COMING SOON"
+        
       },
       {
         "src": "Amd- 1.webp",
@@ -41,6 +46,8 @@
   },
   {
     "folder": "BQR",
+    "caption":"BIN QURAYA - Interiors",
+    "location": "Riyadh",
     "images": [
       {
         "src": "Cabin 02 V2.webp",
@@ -81,50 +88,41 @@
   },
   {
     "folder": "DFZ",
+    "caption":"DARUL FAZAL",
+    "location": "Kalasipalya, Mangalore",
     "images": [
       {
         "src": "1.webp",
-        "caption": "Image 1",
+        "caption": "DARUL FAZAL",
         "hover-caption": "CAPTION COMING SOON"
       },
       {
         "src": "2.webp",
         "caption": "Image 2",
-        "hover-caption": "CAPTION COMING SOON"
-      }
-    ]
-  },
-  {
-    "folder": "GRJ",
-    "images": [
-      {
-        "src": "2.webp",
-        "caption": "Image 2",
-        "hover-caption": "CAPTION COMING SOON"
-      },
-      {
-        "src": "4.webp",
-        "caption": "Image 4",
         "hover-caption": "CAPTION COMING SOON"
       }
     ]
   },
   {
     "folder": "MLN",
+    "location": "Mudigere",
+    "caption": "MILAN FARMHOUSE",
     "images": [
       {
         "src": "IMG_20260608_214623816.webp",
-        "caption": "Image IMG_20260608_214623816",
+        "caption": "MILAN FARMHOUSE",
         "hover-caption": "CAPTION COMING SOON"
       }
     ]
   },
   {
     "folder": "Merc",
+    "location": "Bangalore",
+    "caption": "Merck Pharmaceuticals",
     "images": [
       {
         "src": "View 1.webp",
-        "caption": "Image View 1",
+        "caption": "Merck Pharmaceuticals",
         "hover-caption": "CAPTION COMING SOON"
       },
       {
@@ -141,10 +139,12 @@
   },
   {
     "folder": "SBR",
+    "location": "Mangalore",
+    "caption": "Sulthan bathery",
     "images": [
       {
         "src": "Urban - Sulthan bathery.webp",
-        "caption": "Image Urban - Sulthan bathery",
+        "caption": "Sulthan bathery",
         "hover-caption": "CAPTION COMING SOON"
       },
       {
@@ -156,6 +156,8 @@
   },
   {
     "folder": "SST",
+    "caption": "SOUL STAGE - Interiors",
+    "location": "Bangalore",
     "images": [
       {
         "src": "RnSScene 10.webp",
@@ -181,6 +183,8 @@
   },
   {
     "folder": "VGP",
+    "caption": "VIBHUTI-AMENITIES",
+    "location": "Puttaparthi",
     "images": [
       {
         "src": "1.webp",
@@ -216,20 +220,22 @@
   },
   {
     "folder": "VMS",
+    "location": "Mangalore",
+    "caption": "VAMSHI RESIDENCE",
     "images": [
       {
         "src": "VMS Image 2.webp",
-        "caption": "VMS Image 2",
+        "caption": "VAMSHI RESIDENCE",
         "hover-caption": "CAPTION COMING SOON"
       },
       {
         "src": "VMSScene 8_1.webp",
-        "caption": "Image VMSScene 8_1",
+        "caption": "VAMSHI RESIDENCE",
         "hover-caption": "CAPTION COMING SOON"
       },
       {
         "src": "VMSScene 9_1.webp",
-        "caption": "Image VMSScene 9_1",
+        "caption": "VAMSHI RESIDENCE",
         "hover-caption": "CAPTION COMING SOON"
       }
     ]

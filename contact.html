@@ -88,7 +88,7 @@
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary font-body font-light overflow-x-hidden">
 
-    <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center transition-all duration-300" id="main-header">
+    <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md border-b border-outline-variant px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center transition-all duration-300" id="main-header">
         <a class="flex items-center gap-3 group" href="/">
         <img src="icons/utprerak-logo.png" alt="" class="h-8 w-auto bg-transparent object-contain transition-transform group-hover:scale-105" />
         
@@ -322,9 +322,9 @@
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
                         header.classList.add('py-2', 'shadow-sm', 'bg-surface');
-                        header.classList.remove('py-4', 'bg-surface/90');
+                        header.classList.remove('py-4', 'bg-surface/70');
                     } else {
-                        header.classList.add('py-4', 'bg-surface/90');
+                        header.classList.add('py-4', 'bg-surface/70');
                         header.classList.remove('py-2', 'shadow-sm', 'bg-surface');
                     }
                 });

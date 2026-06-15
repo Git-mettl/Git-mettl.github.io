@@ -45,7 +45,7 @@ fetch('gallery-data.json')
                 overlayText.textContent = imgData['hover-caption'] || "View Project"; 
 
                 imgWrapper.appendChild(img);
-                imgWrapper.appendChild(overlayText); 
+                // imgWrapper.appendChild(overlayText); 
 
                 // Bottom Header Typography Wrapper
                 const header = document.createElement('header');
@@ -55,11 +55,11 @@ fetch('gallery-data.json')
 
                 const h4 = document.createElement('h4');
                 h4.className = "text-[22px] text-primary mb-1 uppercase font-spartan-light";
-                h4.textContent = imgData.caption; 
+                h4.textContent = folderGroup.caption; 
 
                 const p = document.createElement('p');
                 p.className = "text-[13px] text-secondary uppercase tracking-widest";
-                p.textContent = `Collection • ${folderGroup.folder} / ${imgData.src}`;
+                p.textContent = `Location • ${folderGroup.location}`;
 
                 textDiv.appendChild(h4);
                 textDiv.appendChild(p);

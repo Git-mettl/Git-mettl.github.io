@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>UTPRERAK | Accelerating Vision into Form.</title>
    
-   <link rel="icon" type="image/x-icon" href="icons/favicon-dark.ico">
+    <link rel="icon" type="image/x-icon" href="icons/favicon-dark.ico">
    
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png" />
@@ -122,7 +122,7 @@
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary font-body font-light overflow-x-hidden">
 
-    <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center transition-all duration-300" id="main-header">
+    <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md border-b border-outline-variant px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center transition-all duration-300" id="main-header">
     <a class="flex items-center gap-3 group" href="/">
         <img src="icons/utprerak-logo.png" alt="" class="h-8 w-auto bg-transparent object-contain transition-transform group-hover:scale-105" />
         
@@ -257,9 +257,9 @@
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
                         header.classList.add('py-2', 'shadow-sm', 'bg-surface');
-                        header.classList.remove('py-4', 'bg-surface/90');
+                        header.classList.remove('py-4', 'bg-surface/70');
                     } else {
-                        header.classList.add('py-4', 'bg-surface/90');
+                        header.classList.add('py-4', 'bg-surface/70');
                         header.classList.remove('py-2', 'shadow-sm', 'bg-surface');
                     }
                 });
@@ -368,8 +368,8 @@
                         </div>
                         <header class="flex justify-between items-start w-full px-1 sm:px-0">
                             <div>
-                                <h4 class="text-[20px] md:text-[22px] text-primary mb-1 uppercase font-spartan-light tracking-wide leading-tight">${featuredImage.caption}</h4>
-                                <p class="text-[12px] text-secondary uppercase tracking-widest">Collection • ${folderGroup.folder}</p>
+                                <h4 class="text-[20px] md:text-[22px] text-primary mb-1 uppercase font-spartan-light tracking-wide leading-tight">${folderGroup.caption}</h4>
+                                <p class="text-[12px] text-secondary uppercase tracking-widest">Location • ${folderGroup.location}</p>
                             </div>
                         </header>
                     `;
