@@ -25,7 +25,6 @@
         "src": "AMB HERO SHOT.webp",
         "caption": "DR. BR AMBEDKAR CIRCLE",
         "hover-caption": "CAPTION COMING SOON"
-        
       },
       {
         "src": "Amd- 1.webp",
@@ -46,7 +45,7 @@
   },
   {
     "folder": "BQR",
-    "caption":"BIN QURAYA - Interiors",
+    "caption": "BIN QURAYA - Interiors",
     "location": "Riyadh",
     "images": [
       {
@@ -88,7 +87,7 @@
   },
   {
     "folder": "DFZ",
-    "caption":"DARUL FAZAL",
+    "caption": "DARUL FAZAL",
     "location": "Kalasipalya, Mangalore",
     "images": [
       {
@@ -99,6 +98,90 @@
       {
         "src": "2.webp",
         "caption": "Image 2",
+        "hover-caption": "CAPTION COMING SOON"
+      }
+    ]
+  },
+  {
+    "folder": "GKP",
+    "caption": "GKP Interiors",
+    "location": "",
+    "images": [
+      {
+        "src": "Enscape_2024-04-08-09-15-23.webp",
+        "caption": "Image Enscape_2024-04-08-09-15-23",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Enscape_2024-04-08-09-24-59.webp",
+        "caption": "Image Enscape_2024-04-08-09-24-59",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Enscape_2024-04-08-09-32-11.webp",
+        "caption": "Image Enscape_2024-04-08-09-32-11",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Enscape_2024-04-08-09-33-01.webp",
+        "caption": "Image Enscape_2024-04-08-09-33-01",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Enscape_2024-04-08-09-35-06.webp",
+        "caption": "Image Enscape_2024-04-08-09-35-06",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Enscape_2024-04-08-09-55-04.webp",
+        "caption": "Image Enscape_2024-04-08-09-55-04",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Enscape_2024-04-08-10-18-42.webp",
+        "caption": "Image Enscape_2024-04-08-10-18-42",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Enscape_2024-04-08-10-19-20.webp",
+        "caption": "Image Enscape_2024-04-08-10-19-20",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "IMG-20240405-WA0005.webp",
+        "caption": "Image IMG-20240405-WA0005",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "IMG-20240405-WA0006.webp",
+        "caption": "Image IMG-20240405-WA0006",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "View 1.webp",
+        "caption": "Image View 1",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "View 2.webp",
+        "caption": "Image View 2",
+        "hover-caption": "CAPTION COMING SOON"
+      }
+    ]
+  },
+  {
+    "folder": "GRJ",
+    "caption": "GRJ",
+    "location": "",
+    "images": [
+      {
+        "src": "2.webp",
+        "caption": "Image 2",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "4.webp",
+        "caption": "Image 4",
         "hover-caption": "CAPTION COMING SOON"
       }
     ]
@@ -155,6 +238,23 @@
     ]
   },
   {
+    "folder": "SPB",
+    "caption": "SPB Interiors",
+    "location": "",
+    "images": [
+      {
+        "src": "View 01.webp",
+        "caption": "Image View 01",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "View 02.webp",
+        "caption": "Image View 02",
+        "hover-caption": "CAPTION COMING SOON"
+      }
+    ]
+  },
+  {
     "folder": "SST",
     "caption": "SOUL STAGE - Interiors",
     "location": "Bangalore",
@@ -177,6 +277,23 @@
       {
         "src": "Scene 12.webp",
         "caption": "Image Scene 12",
+        "hover-caption": "CAPTION COMING SOON"
+      }
+    ]
+  },
+  {
+    "folder": "Treehouse",
+    "caption": "Treehouse",
+    "location": "",
+    "images": [
+      {
+        "src": "View a.webp",
+        "caption": "Image View a",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "View b.webp",
+        "caption": "Image View b",
         "hover-caption": "CAPTION COMING SOON"
       }
     ]
@@ -224,18 +341,110 @@
     "caption": "VAMSHI RESIDENCE",
     "images": [
       {
-        "src": "VMS Image 2.webp",
-        "caption": "VAMSHI RESIDENCE",
+        "src": "Enhanced 01.webp",
+        "caption": "Image Enhanced 01",
         "hover-caption": "CAPTION COMING SOON"
       },
       {
-        "src": "VMSScene 8_1.webp",
-        "caption": "VAMSHI RESIDENCE",
+        "src": "Enhanced 02.webp",
+        "caption": "Image Enhanced 02",
         "hover-caption": "CAPTION COMING SOON"
       },
       {
-        "src": "VMSScene 9_1.webp",
-        "caption": "VAMSHI RESIDENCE",
+        "src": "VMSScene 10_3.webp",
+        "caption": "Image VMSScene 10_3",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "VMSScene 11_3.webp",
+        "caption": "Image VMSScene 11_3",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "VMSScene 6_3.webp",
+        "caption": "Image VMSScene 6_3",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "VMSScene 7_3.webp",
+        "caption": "Image VMSScene 7_3",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "VMSScene 8_3.webp",
+        "caption": "Image VMSScene 8_3",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "VMSScene 9_3.webp",
+        "caption": "Image VMSScene 9_3",
+        "hover-caption": "CAPTION COMING SOON"
+      }
+    ]
+  },
+  {
+    "folder": "VRP",
+    "caption": "VRP Interiors",
+    "location": "",
+    "images": [
+      {
+        "src": "Bed room01.webp",
+        "caption": "Image Bed room01",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Bedroom 02.webp",
+        "caption": "Image Bedroom 02",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Bedroom 03.webp",
+        "caption": "Image Bedroom 03",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Bedroom 04.webp",
+        "caption": "Image Bedroom 04",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Bedroom 06.webp",
+        "caption": "Image Bedroom 06",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Bedroom 07.webp",
+        "caption": "Image Bedroom 07",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Entrance 03.webp",
+        "caption": "Image Entrance 03",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Kithcen 01.webp",
+        "caption": "Image Kithcen 01",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Kithcen 02.webp",
+        "caption": "Image Kithcen 02",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Living 01.webp",
+        "caption": "Image Living 01",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Living 02.webp",
+        "caption": "Image Living 02",
+        "hover-caption": "CAPTION COMING SOON"
+      },
+      {
+        "src": "Living 03.webp",
+        "caption": "Image Living 03",
         "hover-caption": "CAPTION COMING SOON"
       }
     ]
